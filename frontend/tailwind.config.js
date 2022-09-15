@@ -15,6 +15,7 @@ module.exports = {
 			secondary: '#1B9ECC',
 			tertiary: '#F3F3F3',
 			quaternary: '#0BE048',
+			fifth: '##F5F5F5',
 		}),
 		textColor: () => ({
 			primary: '#18D17D',
@@ -34,9 +35,14 @@ module.exports = {
 			height: {
 				header: '90px',
 				hero: '700px',
+				'middle-a': '400px',
+				'middle-b': '500px',
+				footer: '260px',
 			},
 			width: {
-				'hero-resource': '733px',
+				'hero-resource': '833px',
+				'logo-2': '320px',
+				'logo-3': '264px',
 			},
 			padding: {
 				button: '18px 24px 17px 24px',
@@ -63,10 +69,13 @@ module.exports = {
 				button: '25px',
 				'paragraph-1': '70px',
 				'paragraph-2': '18px',
+				'paragraph-3': '35px',
 			},
 			backgroundImage: {
 				'hero-image-1': "url('../public/images/hero1.png')",
 				'hero-vector-1': "url('../public/images/vector1.svg')",
+				'res-1': "url('../public/images/recurso2.png')",
+				'vector-2': "url('../public/images/vector2.svg')",
 			},
 		},
 	},
