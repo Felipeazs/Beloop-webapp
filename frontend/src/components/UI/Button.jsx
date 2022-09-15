@@ -1,10 +1,16 @@
 import React from 'react';
 
-const Button = () => {
+const Button = ({ title, type, mode }) => {
+	const base =
+		'text-button text-secondary border-button border-solid border-button rounded-button p-button leading-button font-black';
+
 	return (
-		<div>
-			<button className='bg-btn_primary border w-16 text-primary'>ok</button>
-		</div>
+		<button
+			className={`${base} ${mode === 'primary' ? 'bg-btn_primary' : 'bg-secondary'}`}
+			type={type}
+		>
+			{title}
+		</button>
 	);
 };
 

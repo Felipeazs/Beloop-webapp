@@ -8,5 +8,6 @@
 	"license": "MIT",
 	"scripts": {
 		"start": "npm start --prefix frontend"
-	}
+	},
+	"dependencies": {}
 }

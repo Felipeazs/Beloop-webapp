@@ -13,6 +13,7 @@ module.exports = {
 		backgroundColor: () => ({
 			primary: '#18D17D',
 			secondary: '#1B9ECC',
+			tertiary: '#D9D9D9',
 			btn_primary: '#0BE048',
 			btn_secondary: '#1B9ECC',
 		}),
@@ -30,7 +31,26 @@ module.exports = {
 		fontFamily: () => ({
 			metropolis: ["'Metropolis'", ...defaultFonts.fontFamily.mono],
 		}),
-		extend: {},
+		extend: {
+			padding: {
+				button: '18px 24px 17px 24px',
+			},
+			lineHeight: {
+				button: '25px',
+			},
+			borderRadius: {
+				button: '30px',
+			},
+			borderColor: {
+				button: '#fff',
+			},
+			borderWidth: {
+				button: '3px',
+			},
+			fontSize: {
+				button: '25px',
+			},
+		},
 	},
 	plugins: [],
 };
