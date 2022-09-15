@@ -9,25 +9,7 @@ const Main = ({ children }) => {
 	return (
 		<>
 			<Header />
-			<div className='bg-primary'>
-				<p className='text-default'>BELOOP MAIN</p>
-				<Button
-					title='Realizar análisis'
-					mode='primary'
-					type='button'
-				/>
-				<Button
-					title='Consultora Beloop'
-					mode='secondary'
-					type='button'
-				/>
-				<Button
-					title='Ley REP'
-					mode='primary'
-					type='button'
-				/>
-				{children}
-			</div>
+			<main>{children}</main>
 			<Footer />
 		</>
 	);

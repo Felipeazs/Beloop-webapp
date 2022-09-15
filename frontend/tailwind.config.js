@@ -33,6 +33,10 @@ module.exports = {
 		extend: {
 			height: {
 				header: '90px',
+				hero: '700px',
+			},
+			width: {
+				'hero-resource': '733px',
 			},
 			padding: {
 				button: '18px 24px 17px 24px',
@@ -43,6 +47,8 @@ module.exports = {
 			lineHeight: {
 				button: '25px',
 				header: '18px',
+				'paragraph-1': '70px',
+				'paragraph-2': '18px',
 			},
 			borderRadius: {
 				button: '30px',
@@ -55,6 +61,12 @@ module.exports = {
 			},
 			fontSize: {
 				button: '25px',
+				'paragraph-1': '70px',
+				'paragraph-2': '18px',
+			},
+			backgroundImage: {
+				'hero-image-1': "url('../public/images/hero1.png')",
+				'hero-vector-1': "url('../public/images/vector1.svg')",
 			},
 		},
 	},
