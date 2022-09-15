@@ -1,0 +1,12 @@
+{
+	"name": "beloop",
+	"version": "1.0.0",
+	"description": "beloop webapp",
+	"main": "index.js",
+	"repository": "https://github.com/Felipeazs/Beloop-webapp.git",
+	"author": "felipeazs <felipeazs@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"start": "npm start --prefix frontend"
+	}
+}
