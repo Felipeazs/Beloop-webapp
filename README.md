@@ -2,6 +2,6 @@
 
 ### Desarrollo aplicación web para Beloop
 
-* Frontend: ReactJS
+* Frontend: ReactJS - Tailwindcss
 * Backend: NodeJS
  

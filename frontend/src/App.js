@@ -4,7 +4,10 @@ import './App.css';
 function App() {
 	return (
 		<Main className='App'>
-			<p>Beloop</p>
+			<p className='text-primary'>Análisis</p>
+			<p>Análisis</p>
+			<b>ANÁLISIS</b>
+			<p className='font-black'>Análisis</p>
 		</Main>
 	);
 }

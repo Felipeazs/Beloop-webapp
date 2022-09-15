@@ -1,18 +1,36 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultFonts = require('tailwindcss/defaultTheme');
 module.exports = {
 	mode: 'jit',
-	purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-	content: ['./pages/**/*.{html,js}', './components/**/*.{html,js}'],
+	content: [
+		'./public/**/*.html',
+		'./src/**/*.{js,jsx}',
+		'./pages/**/*.{html,js}',
+		'./components/**/*.{html,js}',
+	],
 	theme: {
-		backgroundColor: (theme) => ({
-			primary: '#4B4A67',
-			secondary: '#564256',
-			other: '#4D5057',
+		backgroundColor: () => ({
+			primary: '#18D17D',
+			secondary: '#1B9ECC',
+			btn_primary: '#0BE048',
+			btn_secondary: '#1B9ECC',
+		}),
+		textColor: () => ({
+			primary: '#18D17D',
+			secondary: '#fff',
+			default: '#333232',
+		}),
+		screens: {
+			sm: '480px',
+			md: '768px',
+			lg: '976px',
+			xl: '1440px',
+		},
+		fontFamily: () => ({
+			metropolis: ["'Metropolis'", ...defaultFonts.fontFamily.mono],
 		}),
 		extend: {},
-	},
-	variants: {
-		backgroundColor: ['responsive', 'hover', 'focus', 'active'],
 	},
 	plugins: [],
 };
