@@ -27,3 +27,11 @@
   font-family: Metropolis, sans-serif;
   color: #333232;
 }
+.h_line {
+  height: 10px;
+  background-color: #0be048;
+}
+
+nav a.active {
+  border-bottom: solid 3px #0be048;
+}

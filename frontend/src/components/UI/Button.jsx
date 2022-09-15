@@ -6,7 +6,7 @@ const Button = ({ title, type, mode }) => {
 
 	return (
 		<button
-			className={`${base} ${mode === 'primary' ? 'bg-btn_primary' : 'bg-secondary'}`}
+			className={`${base} ${mode === 'primary' ? 'bg-quaternary' : 'bg-secondary'}`}
 			type={type}
 		>
 			{title}

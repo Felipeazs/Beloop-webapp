@@ -21,6 +21,10 @@ function App() {
 						element={<Inicio />}
 					/>
 					<Route
+						path='/inicio'
+						element={<Inicio />}
+					/>
+					<Route
 						path='/ley-rep'
 						element={<Rep />}
 					/>

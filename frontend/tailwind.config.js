@@ -13,9 +13,8 @@ module.exports = {
 		backgroundColor: () => ({
 			primary: '#18D17D',
 			secondary: '#1B9ECC',
-			tertiary: '#D9D9D9',
-			btn_primary: '#0BE048',
-			btn_secondary: '#1B9ECC',
+			tertiary: '#F3F3F3',
+			quaternary: '#0BE048',
 		}),
 		textColor: () => ({
 			primary: '#18D17D',
@@ -32,11 +31,18 @@ module.exports = {
 			metropolis: ["'Metropolis'", ...defaultFonts.fontFamily.mono],
 		}),
 		extend: {
+			height: {
+				header: '90px',
+			},
 			padding: {
 				button: '18px 24px 17px 24px',
+				header_lg: '0 100px 0 100px',
+				header_md: '0 60px 0 60px',
+				header_sm: '0 20px 0 20px',
 			},
 			lineHeight: {
 				button: '25px',
+				header: '18px',
 			},
 			borderRadius: {
 				button: '30px',
