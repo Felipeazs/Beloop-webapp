@@ -38,6 +38,7 @@ module.exports = {
 				'middle-a': '400px',
 				'middle-b': '500px',
 				footer: '260px',
+				copy: '24px',
 			},
 			width: {
 				'hero-resource': '833px',
@@ -70,6 +71,7 @@ module.exports = {
 				'paragraph-1': '70px',
 				'paragraph-2': '18px',
 				'paragraph-3': '35px',
+				copy: '18px',
 			},
 			backgroundImage: {
 				'hero-image-1': "url('../public/images/hero1.png')",

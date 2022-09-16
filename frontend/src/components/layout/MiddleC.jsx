@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from '../UI/Button';
 
-const MiddleC = ({ text1, text2, text3, text4, text5, text6 }) => {
+const MiddleC = ({ text1, text2, text3, text4, text5 }) => {
 	const clickHandler = () => {
 		console.log('click');
 	};
@@ -19,7 +19,7 @@ const MiddleC = ({ text1, text2, text3, text4, text5, text6 }) => {
 					{text3}
 				</p>
 			</div>
-			<div className='flex flex-col justify-center w-1/2 p-20 bg-vector-2 h-full'>
+			<div className='flex flex-col justify-center w-1/2 p-20'>
 				<p className='text-secondary text-paragraph-2'>{text4}</p>
 				<p className='text-secondary text-paragraph-2 mt-4'>{text5}</p>
 				<Button
