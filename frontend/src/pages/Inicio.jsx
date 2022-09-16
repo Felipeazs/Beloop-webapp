@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 //context
 import { HelmetContext } from '../context/helmet-context';
@@ -11,10 +12,15 @@ import MiddleC from '../components/layout/MiddleC';
 
 const Inicio = () => {
 	const { setPageTitle } = useContext(HelmetContext);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		setPageTitle('Inicio');
 	}, [setPageTitle]);
+
+	const clickHandler = () => {
+		navigate('/analisis');
+	};
 
 	return (
 		<>
@@ -25,7 +31,10 @@ const Inicio = () => {
 					'TEST',
 					'Plataforma digital que ayuda a la sistematización de métricas y estándares para la industria del packaging en términos de economía circular y legislación asociada.',
 				]}
+				heroImage='bg-heroImage1'
 				image='/images/recurso1.png'
+				mode='primary'
+				onClick={clickHandler}
 			/>
 			<div className='h_line'></div>
 			<MiddleA
@@ -43,6 +52,7 @@ const Inicio = () => {
 				text4='La Ley N° 20.920, Ley Marco para la Gestión de Residuos, la Responsabilidad
 				Extendida del Productor y Fomento al Reciclaje (“Ley REP”), fue publicada en el
 				Diario Oficial el 1° de junio de 2016.'
+				button='Ley REP'
 			/>
 			<div className='h_line'></div>
 			<MiddleC

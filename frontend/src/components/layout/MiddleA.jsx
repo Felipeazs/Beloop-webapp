@@ -1,9 +1,9 @@
 import React from 'react';
 
-const MiddleA = ({ title, images }) => {
+const MiddleA = ({ title, images, paragraph }) => {
 	return (
 		<section className='flex flex-col justify-center items-center gap-20 h-middle-a'>
-			<p className='font-black text-paragraph-3'>{title}</p>
+			<p className='font-black text-35 leading-35'>{title}</p>
 			<div className='flex flex-row gap-96'>
 				{images &&
 					images.map((image, i) => {
@@ -16,6 +16,9 @@ const MiddleA = ({ title, images }) => {
 							/>
 						);
 					})}
+				{paragraph && (
+					<p className='mx-auto text-justify text-25 w-1/2 leading-25'>{paragraph}</p>
+				)}
 			</div>
 		</section>
 	);

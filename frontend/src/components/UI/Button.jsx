@@ -2,7 +2,7 @@ import React from 'react';
 
 const Button = ({ title, type, mode, onClick }) => {
 	const base =
-		'text-button text-secondary border-button border-solid border-button rounded-button p-button leading-button font-black shadow-lg mt-2';
+		'text-25 text-secondary border-button border-solid border-button rounded-button p-button leading-25 font-black shadow-lg mt-2';
 
 	return (
 		<div>

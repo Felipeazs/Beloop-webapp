@@ -69,7 +69,7 @@ const Footer = () => {
 						<p>Lunes a Viernes de 10 Hrs a 18 Hrs</p>
 					</div>
 				</div>
-				<div className='flex flex-row justify-between px-20 text-copy leading-copy'>
+				<div className='flex flex-row justify-between px-20 text-18 leading-18'>
 					<p>Copyright | 2022 looptest.cl</p>
 					<p>Términos y condiciones | Política de reembolso | Política de privacidad</p>
 				</div>

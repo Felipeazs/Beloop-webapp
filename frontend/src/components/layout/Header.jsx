@@ -13,7 +13,7 @@ const Header = () => {
 						width='190'
 					/>
 				</div>
-				<div className='flex flex-row sm:hidden md:flex md:gap-12 lg:gap-16 leading-header'>
+				<div className='flex flex-row sm:hidden md:flex md:gap-12 lg:gap-16 leading-18'>
 					<NavLink to='/inicio'>INICIO</NavLink>
 					<NavLink to='/ley-rep'>¿LEY REP?</NavLink>
 					<NavLink to='/analisis'>ANÁLISIS</NavLink>
