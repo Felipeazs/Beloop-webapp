@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Button from '../UI/Button';
 
 const Hero = ({ heroImage, image, paragraphs, mode, onClick }) => {
+	const [inProp, setInProp] = useState(false);
 	console.log(heroImage);
+
+	useEffect(() => {
+		const timer = setTimeout(() => setInProp(true), 500);
+
+		return () => {
+			clearTimeout(timer);
+		};
+	}, []);
 
 	return (
 		<>
@@ -24,6 +33,7 @@ const Hero = ({ heroImage, image, paragraphs, mode, onClick }) => {
 						onClick={onClick}
 					/>
 				</div>
+
 				<div className='flex flex-col justify-center bg-hero-vector-1 h-full'>
 					<img
 						src={image}

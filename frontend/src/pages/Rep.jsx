@@ -5,7 +5,6 @@ import { HelmetContext } from '../context/helmet-context';
 import Hero from '../components/layout/Hero';
 import MiddleA from '../components/layout/MiddleA';
 import MiddleB from '../components/layout/MiddleB';
-import MiddleC from '../components/layout/MiddleC';
 
 const Rep = () => {
 	const { setPageTitle } = useContext(HelmetContext);
