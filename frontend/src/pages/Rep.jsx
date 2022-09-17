@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 //components
 import { HelmetContext } from '../context/helmet-context';
@@ -9,15 +10,18 @@ import MiddleB from '../components/layout/MiddleB';
 const Rep = () => {
 	const { setPageTitle } = useContext(HelmetContext);
 
+	const navigate = useNavigate();
+
 	useEffect(() => {
 		setPageTitle('Ley Rep');
+		window.scroll(0, 0);
 	}, [setPageTitle]);
 
 	return (
 		<>
 			<Hero
 				paragraphs={[
-					'QUÉ ES LA ',
+					'¿QUÉ ES LA',
 					'LEY REP?',
 					'',
 					'La Ley N° 20.920, Ley Marco para la Gestión de Residuos, la Responsabilidad Extendida del Productor y Fomento al Reciclaje (“Ley REP”), fue publicada en el Diario Oficial el 1° de junio de 2016.',
@@ -25,6 +29,7 @@ const Rep = () => {
 				heroImage='bg-heroImage2'
 				image='/images/recurso3.png'
 				mode='secondary'
+				onClick={() => navigate('/analisis')}
 			/>
 			<div className='h_line'></div>
 			<MiddleA

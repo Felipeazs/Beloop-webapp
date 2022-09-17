@@ -6,11 +6,7 @@ import 'animate.css/animate.min.css';
 
 import Button from '../UI/Button';
 
-const MiddleB = ({ color, text1, text2, text4, text5, text6, button }) => {
-	const clickHandler = () => {
-		console.log('click');
-	};
-
+const MiddleB = ({ color, text1, text2, text4, text5, text6, button, onClick }) => {
 	return (
 		<section className={color}>
 			<AnimationOnScroll
@@ -33,7 +29,7 @@ const MiddleB = ({ color, text1, text2, text4, text5, text6, button }) => {
 								title={button}
 								type='button'
 								mode='primary'
-								onClick={clickHandler}
+								onClick={onClick}
 							/>
 						)}
 					</div>
