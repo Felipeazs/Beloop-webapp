@@ -18,8 +18,6 @@ const Inicio = () => {
 		setPageTitle('Inicio');
 	}, [setPageTitle]);
 
-	const clickHandler = () => {};
-
 	return (
 		<>
 			<Hero

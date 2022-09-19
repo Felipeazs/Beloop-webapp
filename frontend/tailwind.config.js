@@ -39,6 +39,7 @@ module.exports = {
 				'middle-b': '500px',
 				footer: '260px',
 				copy: '24px',
+				3: '3px',
 			},
 			width: {
 				'hero-resource': '833px',

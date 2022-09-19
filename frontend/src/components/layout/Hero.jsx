@@ -1,19 +1,6 @@
-import React, { useState, useEffect } from 'react';
-
 import Button from '../UI/Button';
 
 const Hero = ({ heroImage, image, paragraphs, mode, onClick }) => {
-	const [inProp, setInProp] = useState(false);
-	console.log(heroImage);
-
-	useEffect(() => {
-		const timer = setTimeout(() => setInProp(true), 500);
-
-		return () => {
-			clearTimeout(timer);
-		};
-	}, []);
-
 	return (
 		<>
 			<div className={`flex flex-row justify-center items-center ${heroImage} h-hero`}>
@@ -25,7 +12,9 @@ const Hero = ({ heroImage, image, paragraphs, mode, onClick }) => {
 							{paragraphs[2]}
 						</span>
 					</p>
-					<p className='text-secondary text-18 leading-18'>{paragraphs[3]}</p>
+					<p className='text-secondary text-18 leading-18 text-justify'>
+						{paragraphs[3]}
+					</p>
 					<Button
 						mode={mode}
 						type='button'

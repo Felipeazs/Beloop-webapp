@@ -12,10 +12,7 @@ const MiddleC = ({ text1, text2, text3, text4, text5 }) => {
 	};
 	return (
 		<section className='bg-res-1'>
-			<AnimationOnScroll
-				animateIn='animate__fadeIn'
-				duration='1.5'
-			>
+			<AnimationOnScroll animateIn='animate__fadeIn'>
 				<section className='flex flex-row justify-around items-center h-middle-b'>
 					<div className='w-1/2 p-20'>
 						<p className='text-70 font-black text-secondary leading-70'>{text1}</p>

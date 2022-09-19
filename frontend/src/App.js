@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 //external
@@ -9,48 +9,52 @@ import Main from './components/layout/Main';
 import { HelmetContext } from './context/helmet-context';
 //pages
 import Inicio from './pages/Inicio';
-import Rep from './pages/Rep';
-import Analisis from './pages/Analisis';
-import Radar from './pages/Radar';
 
 //styles
 import './App.css';
+
+//pages
+const Rep = React.lazy(() => import('./pages/Rep'));
+const Analisis = React.lazy(() => import('./pages/Analisis'));
+const Radar = React.lazy(() => import('./pages/Radar'));
 
 function App() {
 	const { headerTitle } = useContext(HelmetContext);
 
 	return (
-		<Router>
-			<HelmetProvider>
-				<Helmet>
-					<title>LoopTest · {headerTitle}</title>
-				</Helmet>
-				<Main className='App'>
-					<Routes>
-						<Route
-							path='/'
-							element={<Inicio />}
-						/>
-						<Route
-							path='/inicio'
-							element={<Inicio />}
-						/>
-						<Route
-							path='/ley-rep'
-							element={<Rep />}
-						/>
-						<Route
-							path='/analisis'
-							element={<Analisis />}
-						/>
-						<Route
-							path='/radar'
-							element={<Radar />}
-						/>
-					</Routes>
-				</Main>
-			</HelmetProvider>
-		</Router>
+		<Suspense>
+			<Router>
+				<HelmetProvider>
+					<Helmet>
+						<title>LoopTest · {headerTitle}</title>
+					</Helmet>
+					<Main className='App'>
+						<Routes>
+							<Route
+								path='/'
+								element={<Inicio />}
+							/>
+							<Route
+								path='/inicio'
+								element={<Inicio />}
+							/>
+							<Route
+								path='/ley-rep'
+								element={<Rep />}
+							/>
+							<Route
+								path='/analisis'
+								element={<Analisis />}
+							/>
+							<Route
+								path='/radar'
+								element={<Radar />}
+							/>
+						</Routes>
+					</Main>
+				</HelmetProvider>
+			</Router>
+		</Suspense>
 	);
 }
 

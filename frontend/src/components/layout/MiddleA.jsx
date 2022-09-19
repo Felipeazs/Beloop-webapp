@@ -6,10 +6,7 @@ import 'animate.css/animate.min.css';
 
 const MiddleA = ({ title, images, paragraph }) => {
 	return (
-		<AnimationOnScroll
-			animateIn='animate__fadeIn'
-			duration='1.5'
-		>
+		<AnimationOnScroll animateIn='animate__fadeIn'>
 			<section className='flex flex-col justify-center items-center gap-20 h-middle-a'>
 				<p className='font-black text-35 leading-35'>{title}</p>
 				<div className='flex flex-row gap-96'>

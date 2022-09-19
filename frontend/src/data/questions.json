@@ -1,0 +1,276 @@
+{
+	"pilares": [
+		{
+			"nombre": "MATERIALIDAD",
+			"id": "1",
+			"questions": [
+				{
+					"id": "1",
+					"question": "Cuantificación de materiales (identifique cuantos materiales tiene su producto)."
+				},
+				{
+					"id": "2",
+					"question": "Clasificación de materiales (polímeros: PET, PVC, PS, PP, PU, etc. Metálicos: Acero, aluminio, cobre, etc.Otros: Madera, cartón, etc.)"
+				},
+				{
+					"id": "3",
+					"question": "Gramaje de los materiales (pesar cada componente que utilice el material antes mencionado)"
+				}
+			]
+		},
+		{
+			"nombre": "RECICLABILIDAD",
+			"id": "2",
+			"questions": [
+				{
+					"id": "4",
+					"question": "De su producto en general, ¿cuántos componentes del envase son reciclables? (envase es el recipiente que contiene el producto)",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				},
+				{
+					"id": "5",
+					"question": "De su producto en general, ¿Cuántos componentes del embalaje son reciclables? (embalaje es aquel material que protege al producto para su transporte o manipulación)",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				},
+				{
+					"id": "6",
+					"question": "¿El sistema de etiquetado o identificador de marca en el producto, es reciclable? (ya sea etiqueta adhesiva, pintada o impresa)",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				}
+			]
+		},
+		{
+			"nombre": "SEPARABILIDAD",
+			"id": "3",
+			"questions": [
+				{
+					"id": "7",
+					"question": "De su producto en general, ¿cuántos componentes del envase son reciclables? (envase es el recipiente que contiene el producto)",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				},
+				{
+					"id": "8",
+					"question": "De su producto en general, ¿Cuántos componentes del embalaje son reciclables? (embalaje es aquel material que protege al producto para su transporte o manipulación)",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				},
+				{
+					"id": "9",
+					"question": "¿El sistema de etiquetado o identificador de marca en el producto, es reciclable? (ya sea etiqueta adhesiva, pintada o impresa)",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				}
+			]
+		},
+		{
+			"nombre": "LOGÍSTICA",
+			"id": "4",
+			"questions": [
+				{
+					"id": "10",
+					"question": "¿Su plan de logística considera una política amigable con el medio ambiente, reduciendo la huella de carbono? (La masa de CO2 que consume su empresa se ve reducida anualmente considerando los años anteriores)",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				},
+				{
+					"id": "11",
+					"question": "¿Considera eficiente el sistema de traslado y movilización de sus productos? (Compare cuantos productos puede trasladar en un container actualmente y cuantos podía trasladar hace 3 años)",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				},
+				{
+					"id": "12",
+					"question": "¿Emplea un sistema eficiente para la carga y descarga de sus productos? (Compare el tiempo de carga y descarga de sus productos en un remolque, actualmente y hace 3 años) ",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				}
+			]
+		},
+		{
+			"nombre": "PLAN DE GESTIÓN DE RESIDUOS",
+			"id": "5",
+			"questions": [
+				{
+					"id": "13",
+					"question": "¿Mantiene un plan activo de gestión que cuantifique sus residuos?",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				},
+				{
+					"id": "14",
+					"question": "¿Es responsable de los residuos que generan sus productos?",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				},
+				{
+					"id": "15",
+					"question": "¿Mantiene un plan de recuperabilidad de materiales reciclables?",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				},
+				{
+					"id": "16",
+					"question": "¿Mantiene un plan de comunicación a sus usuarios sobre la reutilización, reciclaje, o disposición final de sus EyE?",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				}
+			]
+		},
+		{
+			"nombre": "VALORIZACIÓN",
+			"id": "6",
+			"questions": [
+				{
+					"id": "17",
+					"question": "¿Los materiales utilizados en sus productos tienen un alto índice de valorización?",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				},
+				{
+					"id": "18",
+					"question": "¿Considera un plan activo para los materiales con bajo índice de valorización?",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				},
+				{
+					"id": "19",
+					"question": "¿Mantiene un plan para mejorar los índices de valorización en los materiales ocupados en sus productos? (aumentar los materiales más valorizados en los componentes del producto)",
+					"scores": [
+						{
+							"name": "Completamente",
+							"score": 4
+						},
+						{ "name": "Parcialmente", "score": 3 },
+						{ "name": "En Parte", "score": 2 },
+						{ "name": "Deficiente", "score": 1 },
+						{ "name": "Nulo", "score": 0 }
+					]
+				}
+			]
+		}
+	]
+}
