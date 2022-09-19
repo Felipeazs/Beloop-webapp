@@ -7,7 +7,9 @@ const Button = ({ title, type, mode, onClick, position }) => {
 	return (
 		<div className={position}>
 			<button
-				className={`${base} ${mode === 'primary' ? 'bg-quaternary' : 'bg-secondary'}`}
+				className={`${base} ${
+					mode === 'primary' ? 'bg-quaternary' : 'bg-secondary'
+				} hover:bg-primary`}
 				type={type}
 				onClick={onClick}
 			>

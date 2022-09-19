@@ -16,6 +16,7 @@ module.exports = {
 			tertiary: '#F3F3F3',
 			quaternary: '#0BE048',
 			fifth: '#F5F5F5',
+			sixth: '#fff',
 		}),
 		textColor: () => ({
 			primary: '#18D17D',

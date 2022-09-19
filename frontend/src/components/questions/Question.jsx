@@ -7,7 +7,7 @@ const Question = ({ element, submitHandler, changeHandler }) => {
 	return (
 		<MiniCard>
 			<ul>
-				<p>
+				<p className='text-18 text-justify'>
 					{element.id}.- {element.question}
 				</p>
 
@@ -24,7 +24,7 @@ const Question = ({ element, submitHandler, changeHandler }) => {
 								<label
 									key={i}
 									htmlFor={ele.id}
-									className='flex flex-col'
+									className='flex flex-col items-center cursor-pointer'
 								>
 									{ele.name}
 									<input
@@ -33,6 +33,7 @@ const Question = ({ element, submitHandler, changeHandler }) => {
 										id={ele.id}
 										value={ele.score}
 										onChange={changeHandler}
+										className='w-5 h-5 cursor-pointer'
 									/>
 								</label>
 							))
