@@ -15,11 +15,12 @@ module.exports = {
 			secondary: '#1B9ECC',
 			tertiary: '#F3F3F3',
 			quaternary: '#0BE048',
-			fifth: '##F5F5F5',
+			fifth: '#F5F5F5',
 		}),
 		textColor: () => ({
 			primary: '#18D17D',
 			secondary: '#fff',
+			tertiary: 'rgb(209 213 219)',
 			default: '#333232',
 		}),
 		screens: {

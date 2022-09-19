@@ -28,7 +28,7 @@ const Analisis = () => {
 
 	const nextHandler = () => {
 		setCount(count + 1);
-		window.scroll({ top: 100, left: 100, behavior: 'smooth' });
+		window.scroll({ top: 400, left: 100, behavior: 'smooth' });
 	};
 
 	const submitHandler = (event) => {

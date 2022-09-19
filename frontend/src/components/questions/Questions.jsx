@@ -9,7 +9,7 @@ const Questions = ({ pilar, count, nextHandler, backHandler, submitHandler, chan
 			<Stepper count={count} />
 			<div className='flex flex-row justify-around items-center'>
 				<p className='text-2xl font-black py-4'>{pilar.nombre}</p>
-				<p className='text-25'>{`${count + 1}/6`}</p>
+				<p className='text-tertiary font-black text-35'>{`${count + 1} / 6`}</p>
 			</div>
 			{pilar.questions.map((question) => (
 				<Question
