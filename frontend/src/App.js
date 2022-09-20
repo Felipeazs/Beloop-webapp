@@ -16,7 +16,7 @@ import './App.css';
 //pages
 const Rep = React.lazy(() => import('./pages/Rep'));
 const Analisis = React.lazy(() => import('./pages/Analisis'));
-const Radar = React.lazy(() => import('./pages/Radar'));
+const Chart = React.lazy(() => import('./pages/Chart'));
 
 function App() {
 	const { headerTitle } = useContext(HelmetContext);
@@ -48,7 +48,7 @@ function App() {
 							/>
 							<Route
 								path='/radar'
-								element={<Radar />}
+								element={<Chart />}
 							/>
 						</Routes>
 					</Main>

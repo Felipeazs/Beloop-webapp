@@ -42,11 +42,14 @@ module.exports = {
 				footer: '260px',
 				copy: '24px',
 				3: '3px',
+				100: '150vh',
 			},
 			width: {
 				'hero-resource': '833px',
 				'logo-2': '320px',
 				'logo-3': '264px',
+				1050: '1050px',
+				720: '720px',
 			},
 			padding: {
 				button: '18px 24px 17px 24px',

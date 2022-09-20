@@ -55,7 +55,7 @@ const Analisis = () => {
 			<div className='m-24'>
 				<p className='font-black text-35'>ANÁLISIS CIRCULAR</p>
 				<p className='text-25'>Cumplimiento Ley REP</p>
-				<hr className='bg-quaternary h-3' />
+				<hr className='bg-quaternary h-3 my-10' />
 			</div>
 			{questions[count] && (
 				<Questions
