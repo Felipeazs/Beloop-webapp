@@ -6,10 +6,7 @@ import 'animate.css/animate.min.css';
 
 import Button from '../UI/Button';
 
-const MiddleC = ({ text1, text2, text3, text4, text5 }) => {
-	const clickHandler = () => {
-		console.log('click');
-	};
+const MiddleC = ({ text1, text2, text3, text4, text5, title, onClick }) => {
 	return (
 		<section className='bg-res-1'>
 			<AnimationOnScroll animateIn='animate__fadeIn'>
@@ -23,10 +20,10 @@ const MiddleC = ({ text1, text2, text3, text4, text5 }) => {
 						<p className='text-secondary text-18 leading-18'>{text4}</p>
 						<p className='text-secondary text-18 leading-18 mt-4'>{text5}</p>
 						<Button
-							title='Consultora Beloop'
+							title={title}
 							type='button'
 							mode='secondary'
-							onClick={clickHandler}
+							onClick={onClick}
 						/>
 					</div>
 				</section>

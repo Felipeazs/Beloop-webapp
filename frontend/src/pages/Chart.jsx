@@ -26,6 +26,8 @@ const Chart = () => {
 	useEffect(() => {
 		setPageTitle('Chart');
 
+		console.log(data);
+
 		let total = 0;
 		for (const key in data) {
 			total += data[key];

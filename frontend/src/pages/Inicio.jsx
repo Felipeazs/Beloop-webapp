@@ -61,6 +61,10 @@ const Inicio = () => {
 				text5='Disminución de peso  |  Reducción de costos  |  Cumplimiento de la legislación ambiental  |
 				  Aumento de la calidad de productos
 				   |  Mejoras en la imagen de marca.'
+				title='Consultora Beloop'
+				onClick={() => {
+					window.location.href = 'https://www.beloop.cl/';
+				}}
 			/>
 			<div className='h_line'></div>
 		</>
