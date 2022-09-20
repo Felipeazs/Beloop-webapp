@@ -63,6 +63,9 @@ const Chart = () => {
 		aspectRatio: 2,
 		scales: {
 			r: {
+				ticks: {
+					stepSize: 0.5,
+				},
 				beginAtZero: true,
 				pointLabels: {
 					color: '#BDBDBD',
