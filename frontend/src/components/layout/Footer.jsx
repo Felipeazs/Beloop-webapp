@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
 	return (
 		<>
+			<div className='h_line'></div>
 			<div className='flex flex-col justify-between bg-tertiary text-white h-footer py-3'>
 				<div className='flex flex-row justify-evenly items-center h-full'>
 					<div>
@@ -11,23 +13,31 @@ const Footer = () => {
 							alt=''
 						/>
 					</div>
-					<div className='flex flex-row gap-5'>
-						<img
-							src='logos/email.svg'
-							alt=''
-						/>
-						<img
-							src='logos/whatsapp.svg'
-							alt=''
-						/>
-						<img
-							src='logos/insta.svg'
-							alt=''
-						/>
-						<img
-							src='logos/face.svg'
-							alt=''
-						/>
+					<div className='flex flex-row gap-5 items-center'>
+						<a href='mailto:info.beloop@gmail.com'>
+							<img
+								src='logos/email.svg'
+								alt=''
+							/>
+						</a>
+						<a href='https://wa.me/56996917263'>
+							<img
+								src='logos/whatsapp.svg'
+								alt=''
+							/>
+						</a>
+						<a href='https://instagram.com/beloop.chile?igshid=YmMyMTA2M2Y='>
+							<img
+								src='logos/insta.svg'
+								alt=''
+							/>
+						</a>
+						<a href='https://www.facebook.com/profile.php?id=100063857302587'>
+							<img
+								src='logos/face.svg'
+								alt=''
+							/>
+						</a>
 					</div>
 					<div>
 						<img
@@ -35,31 +45,43 @@ const Footer = () => {
 							alt=''
 						/>
 					</div>
-					<div className='flex flex-row gap-5'>
-						<img
-							src='logos/email.svg'
-							alt=''
-						/>
-						<img
-							src='logos/whatsapp.svg'
-							alt=''
-						/>
-						<img
-							src='logos/insta.svg'
-							alt=''
-						/>
-						<img
-							src='logos/face.svg'
-							alt=''
-						/>
-						<img
-							src='logos/linkedin.svg'
-							alt=''
-						/>
-						<img
-							src='logos/youtube.svg'
-							alt=''
-						/>
+					<div className='flex flex-row gap-5 items-center'>
+						<a href='mailto:info.beloop@gmail.com'>
+							<img
+								src='logos/email.svg'
+								alt=''
+							/>
+						</a>
+						<a href='https://wa.me/56996917263'>
+							<img
+								src='logos/whatsapp.svg'
+								alt=''
+							/>
+						</a>
+						<a href='https://instagram.com/beloop.chile?igshid=YmMyMTA2M2Y='>
+							<img
+								src='logos/insta.svg'
+								alt=''
+							/>
+						</a>
+						<a href='https://www.facebook.com/profile.php?id=100063857302587'>
+							<img
+								src='logos/face.svg'
+								alt=''
+							/>
+						</a>
+						<a href=' https://www.linkedin.com/company/beloop/'>
+							<img
+								src='logos/linkedin.svg'
+								alt=''
+							/>
+						</a>
+						<a href='https://youtube.com/channel/UCpEIhOqFqSSJagBEx07hE2g'>
+							<img
+								src='logos/youtube.svg'
+								alt=''
+							/>
+						</a>
 					</div>
 					<div>
 						<p className='font-black text-copy'>HORARIO</p>

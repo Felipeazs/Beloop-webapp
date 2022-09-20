@@ -66,7 +66,6 @@ const Inicio = () => {
 					window.location.href = 'https://www.beloop.cl/';
 				}}
 			/>
-			<div className='h_line'></div>
 		</>
 	);
 };

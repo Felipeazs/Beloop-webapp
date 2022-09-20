@@ -47,8 +47,6 @@ const Rep = () => {
 				| 6.- Pilas.'
 				text6='Para efectos de la Ley, se considera como productor a la persona que (i) enajena un producto prioritario por primera vez en el mercado nacional; (ii) enajena bajo marca propia un producto prioritario adquirido de un tercero que no es el primer distribuidor; o (iii) importa un producto prioritario para su uso profesional.'
 			/>
-
-			<div className='h_line'></div>
 		</>
 	);
 };
