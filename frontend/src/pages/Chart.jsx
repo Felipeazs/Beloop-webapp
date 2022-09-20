@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { HelmetContext } from '../context/helmet-context';
@@ -20,12 +20,20 @@ ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, 
 
 const Chart = () => {
 	const { setPageTitle, data } = useContext(HelmetContext);
+	const [percentage, setPercentage] = useState(0);
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		setPageTitle('Chart');
 
-		console.log(data);
+		let total = 0;
+		for (const key in data) {
+			total += data[key];
+		}
+		if (total !== 0) {
+			let rounded = Math.round((total * 100) / 24);
+			setPercentage(rounded);
+		}
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [setPageTitle]);
@@ -42,7 +50,7 @@ const Chart = () => {
 		datasets: [
 			{
 				label: 'RADAR DE CIRCULARIDAD',
-				data: [9, 4, 6, 8, 3, 4],
+				data: data,
 				fill: true,
 				backgroundColor: 'rgb(11, 224, 72, 0.4)',
 				borderColor: '#18D17D',
@@ -92,13 +100,13 @@ const Chart = () => {
 				<p className='font-black text-35'>ANÁLISIS CIRCULAR</p>
 
 				<div className='flex flex-row items-center justify-between'>
-					{!data ? (
+					{percentage === 0 ? (
 						<p className='font-black text-70 text-primary leading-70'>SIN DATOS</p>
 					) : (
-						<p>Super datos %</p>
+						<p className='font-black text-70 text-primary leading-70'>{percentage} %</p>
 					)}
 					<Button
-						title='Realizar análisis'
+						title={percentage === 0 ? 'Realizar análisis' : 'Repetir análisis'}
 						mode='primary'
 						type='button'
 						position='text-end'
