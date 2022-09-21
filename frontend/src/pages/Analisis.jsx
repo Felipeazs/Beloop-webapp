@@ -37,6 +37,12 @@ const Analisis = () => {
 		19: 0,
 	});
 
+	useEffect(() => {
+		setPageTitle('Análisis');
+
+		setQuestions(qData.pilares);
+	}, [setPageTitle]);
+
 	const changeHandler = (event) => {
 		setValor((prevState) => {
 			return {
@@ -63,12 +69,6 @@ const Analisis = () => {
 		setCount(count - 1);
 		window.scroll({ top: 100, left: 100, behavior: 'smooth' });
 	};
-
-	useEffect(() => {
-		setPageTitle('Análisis');
-
-		setQuestions(qData.pilares);
-	}, [setPageTitle]);
 
 	return (
 		<>

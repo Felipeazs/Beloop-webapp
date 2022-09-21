@@ -26,8 +26,6 @@ const Chart = () => {
 	useEffect(() => {
 		setPageTitle('Chart');
 
-		console.log(data);
-
 		let total = 0;
 		for (const key in data) {
 			total += data[key];
@@ -36,9 +34,7 @@ const Chart = () => {
 			let rounded = Math.round((total * 100) / 24);
 			setPercentage(rounded);
 		}
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [setPageTitle]);
+	}, [setPageTitle, data]);
 
 	const dataChart = {
 		labels: [
