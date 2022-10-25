@@ -1,6 +1,6 @@
-.DS_Store
-.vscode
-.prettierrc.json
-.env
-yarn-error.log
+**/.DS_Store
+**/.prettierrc.json
+**/.env
+**/yarn-error.log
+**/node_modules
 /frontend/node_modules

@@ -17,45 +17,50 @@ import './App.css';
 const Rep = React.lazy(() => import('./pages/Rep'));
 const Analisis = React.lazy(() => import('./pages/Analisis'));
 const Chart = React.lazy(() => import('./pages/Chart'));
+const Sesion = React.lazy(() => import('./pages/Sesion'))
 
 function App() {
-	const { headerTitle } = useContext(HelmetContext);
+    const { headerTitle } = useContext(HelmetContext);
 
-	return (
-		<Suspense>
-			<Router>
-				<HelmetProvider>
-					<Helmet>
-						<title>LoopTest · {headerTitle}</title>
-					</Helmet>
-					<Main className='App'>
-						<Routes>
-							<Route
-								path='/'
-								element={<Inicio />}
-							/>
-							<Route
-								path='/inicio'
-								element={<Inicio />}
-							/>
-							<Route
-								path='/ley-rep'
-								element={<Rep />}
-							/>
-							<Route
-								path='/analisis'
-								element={<Analisis />}
-							/>
-							<Route
-								path='/radar'
-								element={<Chart />}
-							/>
-						</Routes>
-					</Main>
-				</HelmetProvider>
-			</Router>
-		</Suspense>
-	);
+    return (
+        <Suspense>
+            <Router>
+                <HelmetProvider>
+                    <Helmet>
+                        <title>LoopTest · {headerTitle}</title>
+                    </Helmet>
+                    <Main className='App'>
+                        <Routes>
+                            <Route
+                                path='/'
+                                element={<Inicio />}
+                            />
+                            <Route
+                                path='/inicio'
+                                element={<Inicio />}
+                            />
+                            <Route
+                                path='/ley-rep'
+                                element={<Rep />}
+                            />
+                            <Route
+                                path='/analisis'
+                                element={<Analisis />}
+                            />
+                            <Route
+                                path='/radar'
+                                element={<Chart />}
+                            />
+                            <Route
+                                path='/sesion'
+                                element={<Sesion />}
+                            />
+                        </Routes>
+                    </Main>
+                </HelmetProvider>
+            </Router>
+        </Suspense>
+    );
 }
 
 export default App;

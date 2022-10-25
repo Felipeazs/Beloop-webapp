@@ -1,13 +1,22 @@
 {
-	"name": "beloop",
-	"version": "1.0.0",
-	"description": "beloop webapp",
-	"main": "index.js",
-	"repository": "https://github.com/Felipeazs/Beloop-webapp.git",
-	"author": "felipeazs <felipeazs@gmail.com>",
-	"license": "MIT",
-	"scripts": {
-		"start": "npm start --prefix frontend"
-	},
-	"dependencies": {}
+    "name": "beloop",
+    "version": "1.0.0",
+    "description": "beloop webapp",
+    "main": "index.js",
+    "repository": "https://github.com/Felipeazs/Beloop-webapp.git",
+    "author": "felipeazs <felipeazs@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "client": "npm start --prefix frontend",
+        "server": "nodemon backend/server.js",
+        "dev": "concurrently \"npm run server\" \"npm run client\""
+    },
+    "dependencies": {
+        "dotenv": "^16.0.3",
+        "fastify": "^4.9.2"
+    },
+    "devDependencies": {
+        "concurrently": "^7.5.0",
+        "nodemon": "^2.0.20"
+    }
 }
