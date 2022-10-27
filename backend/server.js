@@ -21,9 +21,9 @@ if (process.env.NODE_ENV === 'production') {
         root: path.join(__dirname, '../frontend/build')
     })
 
-    // fastify.get('*', async (request, reply) => {
-    //     return reply.sendFile('index.html', path.join(__dirname, '../', 'frontend', 'build'))
-    // })
+    fastify.get('*', async (request, reply) => {
+        return reply.sendFile('index.html', path.join(__dirname, '../', 'frontend', 'build'))
+    })
 } else {
     fastify.get('/', (request, reply) => {
         reply.status(200).send('API is running...')

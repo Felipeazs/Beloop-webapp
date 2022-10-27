@@ -153,7 +153,7 @@ const Sesion = () => {
                             <input type="text" id="password" name="password" value={password} className={inputStyle} onChange={changeHandler} />
                         </div>
                         <Button type="submit" position="text-center" title="Ingresar" />
-                        <button onClick={clickHandler} type="button" className="underline">{toggleForm ? 'regístrate' : 'ya eres usuario?'}</button>
+                        <button onClick={clickHandler} type="button" className="underline">{toggleForm ? 'aún no estás registrado?' : 'ya eres usuario?'}</button>
                     </form>
                 )}
             </div>
