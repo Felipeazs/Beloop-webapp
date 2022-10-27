@@ -119,7 +119,7 @@ const Sesion = () => {
                                     <input type="text" id="empresa" name="empresa" value={empresa} className={inputStyle} onChange={changeHandler} />
                                 </div>
                                 <div className="flex flex-col">
-                                    <label htmlFor="rut">Rut de la empresa</label>
+                                    <label htmlFor="rut">Rut de la empresa (12345678-9)</label>
                                     <input type="text" id="rut" name="rut" value={rut} className={inputStyle} onChange={changeHandler} />
                                 </div>
 
@@ -128,7 +128,7 @@ const Sesion = () => {
                                     <input type="text" id="rubro" name="rubro" value={rubro} className={inputStyle} onChange={changeHandler} />
                                 </div>
                                 <div className="flex flex-col">
-                                    <label htmlFor="innovacion">Departament de innovacion</label>
+                                    <label htmlFor="innovacion">Departamento de innovacion</label>
                                     <select id="innovacion" onChange={changeHandler} value={innovacion} className={inputStyle}>
                                         <option value="">elija una opción</option>
                                         <option value="true">Sí</option>
@@ -137,7 +137,7 @@ const Sesion = () => {
                                 </div>
 
                                 <div className="flex flex-col">
-                                    <label htmlFor="ingresos">Ingresos de la empresa</label>
+                                    <label htmlFor="ingresos">Ingresos de la empresa (UF)</label>
                                     <input type="text" id="ingresos" name="ingresos" value={ingresos} className={inputStyle} onChange={changeHandler} />
                                 </div>
 
