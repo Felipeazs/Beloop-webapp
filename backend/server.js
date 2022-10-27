@@ -16,12 +16,12 @@ const analisisRoutes = require('./routes/analisis-route.js')
 fastify.register(userRoutes)
 fastify.register(analisisRoutes)
 
-if (process.env.NODE_ENV === 'PRODUCTION') {
+if (process.env.NODE_ENV === 'production') {
     fastify.register(require('@fastify/static'), {
         root: path.join(__dirname, '../frontend/build')
     })
 
-    fastify.get('*', async (request, reply) => {
+    fastify.get('*', (request, reply) => {
         return reply.sendFile(__dirname, '../', 'frontend', 'build', 'index.html')
     })
 } else {
