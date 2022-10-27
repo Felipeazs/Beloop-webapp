@@ -1,9 +1,12 @@
-const fastify = require('fastify')()
+const { postOpts, loginOpts, getOpts } = require('../options/user-options')
+const { signupUser, loginUser, getAllUsers } = require('../controller/user-controller')
 
-const { getAllUsers } = require('../controller/user-controller')
+const routes = (fastify, options, done) => {
+    fastify.post('/api/users/signup', postOpts, signupUser)
+    fastify.post('/api/users/login', loginOpts, loginUser)
+    fastify.get('/api/users', getOpts, getAllUsers)
 
-module.exports = function(fastify, opts, done) {
-    fastify.post('/api/users', getAllUsers)
     done()
 }
+module.exports = routes
 

@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
+import AuthContext from '../../context/user-context'
+
 const Header = () => {
+    const { isLoggedIn } = useContext(AuthContext)
+
     return (
         <>
             <div className='h_line'></div>
@@ -18,11 +22,13 @@ const Header = () => {
                 <div className='flex flex-row sm:hidden md:flex md:gap-12 lg:gap-16 leading-18'>
                     <NavLink to='/inicio'>INICIO</NavLink>
                     <NavLink to='/ley-rep'>¿LEY REP?</NavLink>
-                    <NavLink to='/analisis'>ANÁLISIS</NavLink>
-                    <NavLink to='/radar'>RADAR</NavLink>
+                    {isLoggedIn && (
+                        <>
+                            <NavLink to='/analisis'>ANÁLISIS</NavLink>
+                        </>)}
                     <NavLink to='/sesion'>SESIÓN</NavLink>
                 </div>
-                <div className='sm:hidden md:inline-block'>
+                <div className='sm:hidden md:inline-block w-190'>
                     <img
                         src='/logos/logo-1-sm.svg'
                         alt='logo1sm'

@@ -1,12 +1,9 @@
 import React, { useContext, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-//external
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-
 //components
 import Main from './components/layout/Main';
-import { HelmetContext } from './context/helmet-context';
+import AuthContext from './context/user-context'
 //pages
 import Inicio from './pages/Inicio';
 
@@ -18,46 +15,49 @@ const Rep = React.lazy(() => import('./pages/Rep'));
 const Analisis = React.lazy(() => import('./pages/Analisis'));
 const Chart = React.lazy(() => import('./pages/Chart'));
 const Sesion = React.lazy(() => import('./pages/Sesion'))
+const NotFound = React.lazy(() => import('./pages/NotFound'))
 
 function App() {
-    const { headerTitle } = useContext(HelmetContext);
+    const { isLoggedIn } = useContext(AuthContext)
 
     return (
         <Suspense>
             <Router>
-                <HelmetProvider>
-                    <Helmet>
-                        <title>LoopTest · {headerTitle}</title>
-                    </Helmet>
-                    <Main className='App'>
-                        <Routes>
-                            <Route
-                                path='/'
-                                element={<Inicio />}
-                            />
-                            <Route
-                                path='/inicio'
-                                element={<Inicio />}
-                            />
-                            <Route
-                                path='/ley-rep'
-                                element={<Rep />}
-                            />
-                            <Route
-                                path='/analisis'
-                                element={<Analisis />}
-                            />
-                            <Route
-                                path='/radar'
-                                element={<Chart />}
-                            />
-                            <Route
-                                path='/sesion'
-                                element={<Sesion />}
-                            />
-                        </Routes>
-                    </Main>
-                </HelmetProvider>
+                <Main className='App'>
+                    <Routes>
+                        <Route
+                            path='/'
+                            element={<Inicio />}
+                        />
+                        <Route
+                            path='/inicio'
+                            element={<Inicio />}
+                        />
+                        <Route
+                            path='/ley-rep'
+                            element={<Rep />}
+                        />
+                        {isLoggedIn && (
+                            <>
+                                <Route
+                                    path='/analisis'
+                                    element={<Analisis />}
+                                />
+                                <Route
+                                    path='/analisis/:resultId'
+                                    element={<Chart />}
+                                />
+                            </>
+                        )}
+                        <Route
+                            path='/sesion'
+                            element={<Sesion />}
+                        />
+                        <Route path='*'
+                            element={<NotFound />}
+                        />
+                    </Routes>
+                </Main>
             </Router>
         </Suspense>
     );
