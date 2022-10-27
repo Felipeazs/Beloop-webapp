@@ -38,7 +38,7 @@ fastify.setErrorHandler(async (error, request, reply) => {
 
 const PORT = process.env.PORT
 connectDB().then(res => {
-    fastify.listen({ port: PORT }, (err, address) => {
+    fastify.listen({ port: PORT || 5000 }, (err, address) => {
         if (err) {
             fastify.log.error(err)
             process.exit(1)
