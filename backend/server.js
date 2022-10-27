@@ -21,8 +21,8 @@ if (process.env.NODE_ENV === 'production') {
         root: path.join(__dirname, '../frontend/build')
     })
 
-    fastify.get('*', (request, reply) => {
-        return reply.sendFile(__dirname, '../', 'frontend', 'build', 'index.html')
+    fastify.get('*', async (request, reply) => {
+        return reply.sendFile('index.html', path.join(__dirname, '../', 'frontend', 'build'))
     })
 } else {
     fastify.get('/', (request, reply) => {
