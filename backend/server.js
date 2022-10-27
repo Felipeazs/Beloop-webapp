@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 
     fastify.get('*', (request, reply) => {
-        return reply.sendFile('index.html', path.join(__dirname, '../', 'frontend', 'build'))
+        reply.sendFile('index.html')
     })
 } else {
     fastify.get('/', (request, reply) => {
