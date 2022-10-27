@@ -5,7 +5,7 @@ const connectDB = require('./utils/db')
 
 //setting headers
 fastify.addHook('onRequest', async (request, reply) => {
-    //reply.header('Access-Control-Allow-Origin', '*')
+    reply.header('Access-Control-Allow-Origin', '*')
     reply.header('Access-Control-Allow-Header', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
     reply.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
 })
@@ -18,7 +18,8 @@ fastify.register(analisisRoutes)
 
 if (process.env.NODE_ENV === 'production') {
     fastify.register(require('@fastify/static'), {
-        root: path.join(__dirname, '../frontend/build')
+        root: path.join(__dirname, '../frontend/build'),
+        wildcard: false
     })
 
     fastify.get('*', (request, reply) => {
