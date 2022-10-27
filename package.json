@@ -14,15 +14,16 @@
         "heroku-pastbuild": "NPM_CONFIG_PRODUCTION=false yarn install --prefix frontend && yarn build --prefix frontend"
     },
     "dependencies": {
+        "@fastify/static": "^6.5.0",
         "bcryptjs": "^2.4.3",
         "boom": "^7.3.0",
+        "concurrently": "^7.5.0",
         "dotenv": "^16.0.3",
         "fastify": "^4.9.2",
         "fastify-swagger": "^5.2.0",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^6.7.0",
-        "mongoose-unique-validator": "^3.1.0",
-        "concurrently": "^7.5.0"
+        "mongoose-unique-validator": "^3.1.0"
     },
     "devDependencies": {
         "nodemon": "^2.0.20"
