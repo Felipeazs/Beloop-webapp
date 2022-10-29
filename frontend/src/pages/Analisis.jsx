@@ -14,7 +14,7 @@ const Analisis = () => {
     const navigate = useNavigate();
     const { setRespuestas } = useContext(HelmetContext);
     const { saveAnalisis } = useHttpClient()
-    const { token } = useContext(AuthContext)
+    const { token, userId } = useContext(AuthContext)
 
     const [questions, setQuestions] = useState([]);
     const [count, setCount] = useState(0);
@@ -72,9 +72,9 @@ const Analisis = () => {
             residuos: respuestas[4],
             valorizacion: respuestas[5]
         }
-        const results = await saveAnalisis(token, radardata)
+        const results = await saveAnalisis(token, radardata, userId)
 
-        navigate(`/analisis/${results.resultId}`);
+        navigate(`/analisis/user/${userId}/results/${results.resultId}`);
     };
 
     const backHandler = () => {

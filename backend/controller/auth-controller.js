@@ -3,9 +3,14 @@ const Analisis = require('../models/analisis-model')
 const Usuario = require('../models/user-model')
 
 const saveAnalisis = async (request, reply) => {
-
     if (request.validationError) {
         return reply.code(400).send({ ok: false, message: request.validationError })
+    }
+
+    const {userId} = request.params
+
+    if(userId !== request.userId.id){
+        return reply.status(400).send({ ok: false, message: 'El usuario no existe' })
     }
 
     let usuario
@@ -19,7 +24,7 @@ const saveAnalisis = async (request, reply) => {
     }
 
     if (!usuario) {
-        reply.status(400).send({ ok: false, message: 'El usuario no existe' })
+        return reply.status(400).send({ ok: false, message: 'El usuario no existe' })
     }
 
     const { materialidad, reciclabilidad, separabilidad, logistica, residuos, valorizacion } = request.body
@@ -31,7 +36,7 @@ const saveAnalisis = async (request, reply) => {
         logistica,
         residuos,
         valorizacion,
-        userId: request.userId.id
+        usuario: request.userId.id
     })
 
     let result
@@ -70,7 +75,7 @@ const getUserAnalisis = async (request, reply) => {
         return reply.status(404).send({ ok: false, messaage: 'Analisis not found ' })
     }
 
-    return reply.send({ ok: true, results: analisis.toObject({ getters: true }) })
+    return reply.status(200).send({ ok: true, results: analisis.toObject({ getters: true }) })
 }
 
 const getAllUserAnalisis = async (request, reply) => {
@@ -83,7 +88,7 @@ const getAllUserAnalisis = async (request, reply) => {
 
     let userAnalisis
     try {
-        userAnalisis = await Analisis.find({ userId: id }).sort({ createdAt: -1 })
+        userAnalisis = await Analisis.find({ usuario: id }).sort({ createdAt: -1 })
     } catch (err) {
         let error = new Error()
         error.message = 'Error trying to retrive all the users analisis'
@@ -95,7 +100,7 @@ const getAllUserAnalisis = async (request, reply) => {
         return reply.status(404).send({ ok: false, message: 'No encontramos analisis para este usuario' })
     }
 
-    reply.status(200).send({ ok: true, results: userAnalisis.map((analisis) => analisis.toObject({ getters: true })) })
+    return reply.status(200).send({ ok: true, results: userAnalisis.map((analisis) => analisis.toObject({ getters: true })) })
 }
 
 module.exports = { saveAnalisis, getUserAnalisis, getAllUserAnalisis }

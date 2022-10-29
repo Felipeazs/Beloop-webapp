@@ -10,7 +10,7 @@ const usuarioSchema = mongoose.Schema({
     password: {
         type: String,
         required: true,
-        minLenght: 6
+        minLenght: 8
     },
     nombre_empresa: {
         type: String,
@@ -18,29 +18,42 @@ const usuarioSchema = mongoose.Schema({
     },
     rut_empresa: {
         type: String,
-        required: true,
+        required: false,
         unique: true
     },
     rubro: {
         type: String,
-        required: true
+        required: false
     },
     dept_innovacion: {
         type: Boolean,
-        required: true
+        required: false
     },
     ingresos: {
         type: String,
-        required: true
+        required: false
     },
     trabajadores: {
         type: Number,
-        required: true
+        required: false
     },
     role: {
         type: String,
-        enum: ['ususario', 'admin'],
-        default: 'ususario'
+        enum: ['usuario', 'admin'],
+        default: 'usuario'
+    },
+    telefono: {
+        type: String,
+        required: false
+    },
+    ubicacion: {
+        type: String,
+        required: false
+    },
+    formulario: {
+        type: mongoose.Schema.ObjectId,
+        require: false,
+        ref: 'Formulario'
     },
     analisis: [{
         type: mongoose.Schema.ObjectId,

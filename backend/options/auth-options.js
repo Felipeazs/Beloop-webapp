@@ -24,6 +24,15 @@ const saveAnalisisOpts = {
                 },
             }
         },
+        params: {
+            type: 'object',
+            required: ['userId'],
+            properties: {
+                userId: {
+                    type: 'string'
+                }
+            }
+        },
         response: {
             201: {
                 type: 'object',
@@ -131,5 +140,6 @@ const getAnalisisOpts = {
     }
 
 }
+
 
 module.exports = { saveAnalisisOpts, getAnalisisOpts }

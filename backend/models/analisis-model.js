@@ -26,7 +26,7 @@ const analisisSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    userId: {
+    usuario: {
         type: mongoose.Types.ObjectId,
         required: true,
         ref: 'Usuario'

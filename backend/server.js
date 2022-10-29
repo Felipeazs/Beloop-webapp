@@ -12,9 +12,11 @@ fastify.addHook('onRequest', async (request, reply) => {
 
 //routes
 const userRoutes = require('./routes/user-route')
-const analisisRoutes = require('./routes/analisis-route.js')
+const authRoutes = require('./routes/auth-route')
+const formRoutes = require('./routes/form-route')
 fastify.register(userRoutes)
-fastify.register(analisisRoutes)
+fastify.register(authRoutes)
+fastify.register(formRoutes)
 
 if (process.env.NODE_ENV === 'production') {
     fastify.register(require('@fastify/static'), {

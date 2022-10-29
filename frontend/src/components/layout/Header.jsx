@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import AuthContext from '../../context/user-context'
 
 const Header = () => {
-    const { isLoggedIn } = useContext(AuthContext)
+    const { isLoggedIn, userId } = useContext(AuthContext)
 
     return (
         <>
@@ -24,7 +24,7 @@ const Header = () => {
                     <NavLink to='/ley-rep'>¿LEY REP?</NavLink>
                     {isLoggedIn && (
                         <>
-                            <NavLink to='/analisis'>ANÁLISIS</NavLink>
+                            <NavLink to={`/cuenta/${userId}`}>CUENTA</NavLink>
                         </>)}
                     <NavLink to='/sesion'>SESIÓN</NavLink>
                 </div>

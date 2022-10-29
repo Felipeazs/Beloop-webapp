@@ -2,38 +2,26 @@ const postOpts = {
     schema: {
         body: {
             type: 'object',
-            required: ['correo', 'rut', 'empresa', 'rubro', 'innovacion', 'ingresos', 'trabajadores', 'password'],
+            required: ['correo', 'rut', 'empresa', 'password'],
             properties: {
                 correo: {
                     type: 'string',
                     pattern: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$",
                 },
-                rut: {
-                    type: 'string',
-                    pattern: "^[a-zA-Z0-9_.-]*$"
-                },
                 empresa: {
                     type: 'string',
                     pattern: "^[a-zA-Z0-9 _.-]*$"
                 },
-                rubro: {
+                rut: {
                     type: 'string',
-                    pattern: "^[a-zA-Z0-9 _.-]*$"
-                },
-                innovacion: {
-                    type: 'boolean',
-                },
-                ingresos: {
-                    type: 'string',
-                    pattern: "^[a-zA-Z0-9 _.-]*$"
-                },
-                trabajadores: {
-                    type: 'string',
-                    pattern: "^[0-9]*$"
                 },
                 password: {
                     type: 'string',
-                    minLength: 5
+                    minLength: 8
+                },
+                password2: {
+                    type: 'string',
+                    minLength: 8
                 }
             }
         },
@@ -47,6 +35,9 @@ const postOpts = {
                     user: {
                         type: 'object',
                         properties: {
+                            userId: {
+                                type: 'string'
+                            },
                             correo: {
                                 type: 'string'
                             },
@@ -112,7 +103,7 @@ const loginOpts = {
                     user: {
                         type: 'object',
                         properties: {
-                            _id: {
+                            userId: {
                                 type: 'string'
                             },
                             correo: {
@@ -167,4 +158,197 @@ const getOpts = {
     }
 }
 
-module.exports = { postOpts, loginOpts, getOpts }
+const getUserDataOpts = {
+    schema: {
+        params: {
+            type: 'object',
+            required: ['userId'],
+            properties: {
+                userId: {
+                    type: 'string'
+                }
+            }
+        },
+        response: {
+            200: {
+                type: 'object',
+                properties: {
+                    ok: {
+                        type: 'boolean'
+                    },
+                    user: {
+                        type: 'object',
+                        properties: {
+                            _id: {
+                                type: 'string'
+                            },
+                            correo: {
+                                type: 'string'
+                            },
+                            nombre_empresa: {
+                                type: 'string'
+                            },
+                            rut_empresa: {
+                                type: 'string'
+                            },
+                            rubro: {
+                                type: 'string'
+                            },
+                            innovacion: {
+                                type: 'string'
+                            },
+                            ingresos: {
+                                type: 'string'
+                            },
+                            trabajadores: {
+                                type: 'string'
+                            },
+                            telefono: {
+                                type: 'string'
+                            },
+                            ubicacion: {
+                                type: 'string'
+                            },
+                            analisis: {
+                                type: 'array',
+                                items: {
+                                    type: 'object',
+                                    properties: {
+                                        _id: {
+                                            type: 'string'
+                                        },
+                                        materialidad: {
+                                            type: 'number'
+                                        },
+                                        reciclabilidad: {
+                                            type: 'number'
+                                        },
+                                        separabilidad: {
+                                            type: 'number'
+                                        },
+                                        logistica: {
+                                            type: 'number'
+                                        },
+                                        residuos: {
+                                            type: 'number'
+                                        },
+                                        valorizacion: {
+                                            type: 'number'
+                                        },
+                                        createdAt: {
+                                            type: 'string'
+                                        }
+                                    }
+                                }
+                            },
+                            formulario: {
+                                type: 'object',
+                                properties: {
+                                    catastro: {
+                                        type: 'string'
+                                    },
+                                    gestion: {
+                                        type: 'string'
+                                    },
+                                    revalorizacion: {
+                                        type: 'string'
+                                    },
+                                    volumen: {
+                                        type: 'string'
+                                    },
+                                    residuos: {
+                                        type: 'array'
+                                    }
+                                }
+                            }
+                        }
+                    },
+                }
+            },
+            400: {
+                type: 'object',
+                properties: {
+                    ok: {
+                        type: 'boolean'
+                    },
+                    message: {
+                        type: 'string'
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+
+const updateUserDataOpts = {
+    schema: {
+        body: {
+            type: 'object',
+            properties: {
+                correo: {
+                    type: 'string'
+                },
+                empresa: {
+                    type: 'string'
+                },
+                rut: {
+                    type: 'string'
+                },
+                rubro: {
+                    type: 'string'
+                },
+                innovacion: {
+                    type: 'string'
+                },
+                ingresos: {
+                    type: 'string'
+                },
+                trabajadores: {
+                    type: 'string'
+                },
+                telefono: {
+                    type: 'string'
+                },
+                ubicacion: {
+                    type: 'string'
+                },
+                password: {
+                    type: 'string'
+                }
+            }
+        },
+        response: {
+            200: {
+                type: 'object',
+                properties: {
+                    ok: {
+                        type: 'boolean'
+                    },
+                    user: {
+                        type: 'object',
+                        properties: {
+                            _id: {
+                                type: 'string'
+                            },
+                        }
+                    },
+                }
+            },
+            400: {
+                type: 'object',
+                properties: {
+                    ok: {
+                        type: 'boolean'
+                    },
+                    message: {
+                        type: 'string'
+                    }
+                }
+            }
+        }
+    }
+}
+
+module.exports = { postOpts, loginOpts, getOpts, getUserDataOpts, updateUserDataOpts }

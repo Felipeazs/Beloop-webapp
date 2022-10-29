@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
 
 import { ToastContainer, toast } from 'react-toastify'
@@ -6,44 +7,23 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import AuthContext from '../context/user-context'
 import useHttpClient from '../hooks/http-hook.js'
-import Cuenta from '../components/cuenta/Cuenta'
 import Button from '../components/UI/Button'
 
 const Sesion = () => {
+    const navigate = useNavigate()
     const { login, isLoggedIn, logout } = useContext(AuthContext)
     const { loginUser, signupUser } = useHttpClient()
     const [toggleForm, setToggleForm] = useState(false)
-    const { isLoading, error, data, mutate } = useMutation(newUser => signupUser(newUser))
+    const { error, data, mutateAsync } = useMutation(newUser => signupUser(newUser))
     const [user, setUser] = useState({
-        correo: '',
-        empresa: '',
-        rut: '',
-        rubro: '',
-        innovacion: '',
-        ingresos: '',
-        trabajadores: '',
-        password: '',
+        correo: 'empresa@empresa.cl',
+        empresa: 'empresa',
+        rut: '16741352-8',
+        password: 'asdfasdf',
+        password2: 'asdfasdf'
     })
 
-    const { correo, empresa, rut, rubro, innovacion, ingresos, trabajadores, password } = user
-
-    useEffect(() => {
-        if (isLoggedIn) {
-            setToggleForm(true)
-        }
-
-        if (data !== undefined) {
-            if (!data.ok) {
-                if (data.message.includes('pattern')) {
-                    toast.error('Ingrese todos los datos en el formato correcto')
-                } else {
-                    toast.error(data.message)
-                }
-            }
-            logUser(data)
-        }
-    }, [data])
-
+    const { correo, empresa, rut, password, password2 } = user
 
     const changeHandler = (event) => {
 
@@ -57,26 +37,51 @@ const Sesion = () => {
     const submitHandler = async (event) => {
         event.preventDefault()
 
+        if (!toggleForm) {
+            if (correo.trim().length === 0 || empresa.trim().length === 0 ||
+                rut.trim().length === 0 || password.trim().length === 0 || password2.trim().length === 0) {
+                return toast.error('Debe ingresar todos los datos')
+            }
+
+            if (password !== password2) {
+                return toast.error('Sus contraseñas no coinciden')
+            }
+        }
+
         let loggedUser
         if (!toggleForm) {
-            mutate(user)
+            const newUserData = await mutateAsync(user)
+            if (!newUserData.ok) {
+                if (newUserData.message.includes('pattern')) {
+                    toast.error('Ingrese todos los datos en el formato correcto')
+                } else {
+                    toast.error(data.message)
+                }
+            } else {
+                logUser(newUserData)
+                navigate(`/cuenta/${newUserData.user.userId}/fase0`)
+            }
         } else {
             loggedUser = await loginUser({ correo, password })
             if (!loggedUser.ok) {
                 toast.warning('Credenciales incorrectas')
             }
-            logUser(loggedUser)
+            const userData = logUser(loggedUser)
+            navigate(`/cuenta/${userData.user._id}`)
         }
+
     }
 
     const logUser = (userData) => {
 
         if (userData.ok) {
-            const { _id, correo } = userData.user
-            login(_id, userData.token)
+            const { userId, correo } = userData.user
+            login(userId, userData.token)
 
             const username = correo.substring(0, correo.indexOf('@'))
             toast.success(`Bienvenido a LoopTest, ${username}`)
+
+            return userData
         }
     }
 
@@ -101,7 +106,6 @@ const Sesion = () => {
             <div className="border p-10 flex flex-col gap-5 rounded-md">
                 {isLoggedIn && (
                     <>
-                        <Cuenta />
                         <Button onClick={logoutHandler} title="Cerrar Sesión" position="text-center m-8" />
                     </>
                 )}
@@ -115,43 +119,26 @@ const Sesion = () => {
                         {!toggleForm && (
                             <>
                                 <div className="flex flex-col">
-                                    <label htmlFor="empresa">Nombre de la empresa</label>
+                                    <label htmlFor="correo">Nombre de la Empresa</label>
                                     <input type="text" id="empresa" name="empresa" value={empresa} className={inputStyle} onChange={changeHandler} />
                                 </div>
                                 <div className="flex flex-col">
-                                    <label htmlFor="rut">Rut de la empresa (12345678-9)</label>
+                                    <label htmlFor="correo">Rut de la Empresa (xxxxxxxxxx-x)</label>
                                     <input type="text" id="rut" name="rut" value={rut} className={inputStyle} onChange={changeHandler} />
-                                </div>
-
-                                <div className="flex flex-col">
-                                    <label htmlFor="rubro">Rubro de la empresa</label>
-                                    <input type="text" id="rubro" name="rubro" value={rubro} className={inputStyle} onChange={changeHandler} />
-                                </div>
-                                <div className="flex flex-col">
-                                    <label htmlFor="innovacion">Departamento de innovacion</label>
-                                    <select id="innovacion" onChange={changeHandler} value={innovacion} className={inputStyle}>
-                                        <option value="">elija una opción</option>
-                                        <option value="true">Sí</option>
-                                        <option value="false">No</option>
-                                    </select>
-                                </div>
-
-                                <div className="flex flex-col">
-                                    <label htmlFor="ingresos">Ingresos de la empresa (UF)</label>
-                                    <input type="text" id="ingresos" name="ingresos" value={ingresos} className={inputStyle} onChange={changeHandler} />
-                                </div>
-
-                                <div className="flex flex-col">
-                                    <label htmlFor="trabajadores">Número de trabajadores</label>
-                                    <input type="text" id="trabajadores" name="trabajadores" value={trabajadores} className={inputStyle} onChange={changeHandler} />
                                 </div>
                             </>
                         )}
-
                         <div className="flex flex-col w-">
-                            <label htmlFor="password">Contraseña</label>
+                            <label htmlFor="password">Contraseña (min 8 caracteres)</label>
                             <input type="text" id="password" name="password" value={password} className={inputStyle} onChange={changeHandler} />
                         </div>
+                        {!toggleForm && (
+                            <div className="flex flex-col w-">
+                                <label htmlFor="password">Repite la Contraseña</label>
+                                <input type="text" id="password2" name="password2" value={password2} className={inputStyle} onChange={changeHandler} />
+                            </div>
+                        )}
+
                         <Button type="submit" position="text-center" title="Ingresar" />
                         <button onClick={clickHandler} type="button" className="underline">{toggleForm ? 'aún no estás registrado?' : 'ya eres usuario?'}</button>
                     </form>

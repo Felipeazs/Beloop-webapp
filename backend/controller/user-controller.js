@@ -3,13 +3,23 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
 const Usuario = require('../models/user-model')
+const verify = require('../utils/rut-verify')
 
 const signupUser = async (request, reply) => {
     if (request.validationError) {
         return reply.code(400).send({ ok: false, message: request.validationError })
     }
 
-    const { correo, empresa, rut, rubro, innovacion, ingresos, trabajadores, password } = request.body
+    const { correo, empresa, rut, password, password2 } = request.body
+
+    if (password !== password2) {
+        return reply.code(400).send({ ok: false, message: 'Las contraseñas no coinciden' })
+    }
+
+    //verfy rut
+    if (!verify(rut)) {
+        return reply.code(400).send({ ok: false, message: 'Debe ingresar un rut válido' })
+    }
 
     let findUser
     try {
@@ -37,8 +47,7 @@ const signupUser = async (request, reply) => {
     }
 
     const newUser = new Usuario({
-        correo, nombre_empresa: empresa, rut_empresa: rut, rubro, dept_innovacion: innovacion,
-        ingresos, trabajadores, password: hashedPass
+        correo, nombre_empresa: empresa, rut_empresa: rut, password: hashedPass
     })
 
     try {
@@ -66,7 +75,7 @@ const signupUser = async (request, reply) => {
 
     return reply.code(201).send({
         ok: true,
-        user: { correo: newUser.correo, empresa: newUser.nombre_empresa },
+        user: { userId: newUser.id, correo: newUser.correo, empresa: newUser.nombre_empresa },
         token: token
     })
 }
@@ -121,7 +130,80 @@ const loginUser = async (request, reply) => {
         throw error
     }
 
-    return reply.code(200).send({ ok: true, user: identifiedUser, token: token })
+    return reply.code(200).send({ ok: true, user: {userId: identifiedUser._id, correo: identifiedUser.correo}, token: token })
+}
+
+const getUserData = async (request, reply) => {
+
+    if (request.validationError) {
+        return reply.code(400).send({ ok: false, message: request.validationError })
+    }
+
+    const { userId } = request.params
+
+    if (userId !== request.userId.id) {
+        return reply.code(400).send({ ok: false, message: 'Usted no tiene permisos para ver estos datos' })
+    }
+
+    let identifiedUser
+    try {
+        identifiedUser = await Usuario.findById(request.userId.id).populate(['analisis', 'formulario'])
+    } catch (err) {
+        let error = new Error()
+        error.message = 'Error trying to find the user'
+        error.statusCode = 500
+        throw error
+    }
+
+    if (!identifiedUser) {
+        return reply.code(404).send({ ok: false, message: 'El usuario no existe' })
+    }
+
+    return reply.code(200).send({ ok: true, user: identifiedUser })
+}
+
+const updateUserData = async (request, reply) => {
+
+    if (request.validationError) {
+        reply.code(400).send({ ok: false, message: request.validationError })
+    }
+
+    const { telefono, ubicacion } = request.body
+
+    const userId = request.userId.id
+    let userFound
+    try {
+        userFound = await Usuario.findById(userId)
+    } catch (err) {
+        let error = new Error()
+        error.message = 'Error trying to found the user'
+        error.statusCode = 500
+        throw error
+    }
+
+    if (!userFound) {
+        return reply.code(400).send({ ok: false, message: 'Usuario no encontrado' })
+    }
+
+    if (userFound._id.toString() !== userId) {
+        return reply.code(400).send({ ok: false, message: 'Usted no está autorizado para actualizar este usuario' })
+    }
+
+    userFound.telefono = telefono
+    userFound.ubicacion = ubicacion
+
+    console.log(userFound)
+
+    try {
+        await userFound.save()
+    } catch (err) {
+        let error = new Error()
+        error.message = 'Error trying to save the updated user'
+        error.statusCode = 500
+        throw error
+    }
+
+    return reply.status(201).send({ ok: true, user: userFound })
 }
 
 const getAllUsers = async (request, reply) => {
@@ -129,4 +211,4 @@ const getAllUsers = async (request, reply) => {
     return reply.code(200).send({ ok: true, message: 'all users' })
 }
 
-module.exports = { signupUser, loginUser, getAllUsers }
+module.exports = { signupUser, loginUser, getUserData, getAllUsers, updateUserData }

@@ -16,6 +16,9 @@ const Analisis = React.lazy(() => import('./pages/Analisis'));
 const Chart = React.lazy(() => import('./pages/Chart'));
 const Sesion = React.lazy(() => import('./pages/Sesion'))
 const NotFound = React.lazy(() => import('./pages/NotFound'))
+const Cuenta = React.lazy(() => import('./pages/Cuenta'))
+const FaseDescripcion = React.lazy(() => import('./pages/FaseDescripcion'))
+const FaseAutodiagnostico = React.lazy(() => import('./pages/FaseAutodiagnostico'))
 
 function App() {
     const { isLoggedIn } = useContext(AuthContext)
@@ -40,12 +43,24 @@ function App() {
                         {isLoggedIn && (
                             <>
                                 <Route
-                                    path='/analisis'
+                                    path='/analisis/user/:userId'
                                     element={<Analisis />}
                                 />
                                 <Route
-                                    path='/analisis/:resultId'
+                                    path='/analisis/user/:userId/results/:resultId'
                                     element={<Chart />}
+                                />
+                                <Route
+                                    path='/cuenta/:userId'
+                                    element={<Cuenta />}
+                                />
+                                <Route
+                                    path='/cuenta/:userId/fase0'
+                                    element={<FaseDescripcion />}
+                                />
+                                <Route
+                                    path='/cuenta/:userId/fase1'
+                                    element={<FaseAutodiagnostico />}
                                 />
                             </>
                         )}
