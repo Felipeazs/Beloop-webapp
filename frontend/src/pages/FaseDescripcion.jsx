@@ -18,8 +18,8 @@ const FaseDescripcion = () => {
     const { token } = useContext(AuthContext)
     const { isLoading, error, data } = useQuery(['userData'], () => getUserData(token, userId))
     const [user, setUser] = useState({
-        telefono: '123456789',
-        ubicacion: 'asdfasdf'
+        telefono: '',
+        ubicacion: ''
     })
 
     const { telefono, ubicacion } = user

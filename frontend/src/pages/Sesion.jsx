@@ -16,11 +16,11 @@ const Sesion = () => {
     const [toggleForm, setToggleForm] = useState(false)
     const { error, data, mutateAsync } = useMutation(newUser => signupUser(newUser))
     const [user, setUser] = useState({
-        correo: 'empresa@empresa.cl',
-        empresa: 'empresa',
-        rut: '16741352-8',
-        password: 'asdfasdf',
-        password2: 'asdfasdf'
+        correo: '',
+        empresa: '',
+        rut: '',
+        password: '',
+        password2: ''
     })
 
     const { correo, empresa, rut, password, password2 } = user
