@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import AuthContext from '../context/user-context'
@@ -12,7 +12,6 @@ import MiddleC from '../components/layout/MiddleC';
 const Inicio = () => {
     const { isLoggedIn, userId } = useContext(AuthContext)
     const navigate = useNavigate();
-
 
     const clickHandler = () => { 
         if(isLoggedIn){
