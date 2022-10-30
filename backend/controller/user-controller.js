@@ -130,7 +130,7 @@ const loginUser = async (request, reply) => {
         throw error
     }
 
-    return reply.code(200).send({ ok: true, user: {userId: identifiedUser._id, correo: identifiedUser.correo}, token: token })
+    return reply.code(200).send({ ok: true, user: { userId: identifiedUser._id, correo: identifiedUser.correo }, token: token })
 }
 
 const getUserData = async (request, reply) => {
@@ -191,8 +191,6 @@ const updateUserData = async (request, reply) => {
 
     userFound.telefono = telefono
     userFound.ubicacion = ubicacion
-
-    console.log(userFound)
 
     try {
         await userFound.save()

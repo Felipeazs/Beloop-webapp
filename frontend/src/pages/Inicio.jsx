@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import AuthContext from '../context/user-context'
+
 //components
 import Hero from '../components/layout/Hero';
 import MiddleA from '../components/layout/MiddleA';
@@ -8,7 +10,17 @@ import MiddleB from '../components/layout/MiddleB';
 import MiddleC from '../components/layout/MiddleC';
 
 const Inicio = () => {
+    const { isLoggedIn, userId } = useContext(AuthContext)
     const navigate = useNavigate();
+
+
+    const clickHandler = () => { 
+        if(isLoggedIn){
+            navigate(`/analisis/user/${userId}`)
+        } else {
+            navigate('/sesion')
+        }
+    }
 
     return (
         <>
@@ -22,7 +34,7 @@ const Inicio = () => {
                 heroImage='bg-heroImage1'
                 image='/images/recurso1.png'
                 mode='primary'
-                onClick={() => navigate('/analisis')}
+                onClick={clickHandler}
             />
             <div className='h_line'></div>
             <MiddleA

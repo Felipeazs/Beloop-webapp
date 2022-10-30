@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
 
@@ -69,7 +69,6 @@ const Sesion = () => {
             const userData = logUser(loggedUser)
             navigate(`/cuenta/${userData.user._id}`)
         }
-
     }
 
     const logUser = (userData) => {

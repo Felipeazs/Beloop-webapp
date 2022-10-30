@@ -7,9 +7,9 @@ const saveAnalisis = async (request, reply) => {
         return reply.code(400).send({ ok: false, message: request.validationError })
     }
 
-    const {userId} = request.params
+    const { userId } = request.params
 
-    if(userId !== request.userId.id){
+    if (userId !== request.userId.id) {
         return reply.status(400).send({ ok: false, message: 'El usuario no existe' })
     }
 

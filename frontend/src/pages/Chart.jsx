@@ -25,7 +25,7 @@ const Chart = () => {
     const { token } = useContext(AuthContext)
     const { resultId } = useParams()
     const { getUserAnalisis } = useHttpClient()
-    const { isLoading, error, data } = useQuery(['results'], () => getUserAnalisis(resultId, token))
+    const { data } = useQuery(['results'], () => getUserAnalisis(resultId, token))
     const [percentage, setPercentage] = useState(0);
     const [dataPoints, setDataPoints] = useState([])
     const navigate = useNavigate();

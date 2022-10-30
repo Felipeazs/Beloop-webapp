@@ -15,7 +15,7 @@ const FaseAutodiagnostico = () => {
     const { userId } = useParams()
     const { updateUserFormulario } = useHttpClient()
     const { token } = useContext(AuthContext)
-    const { isLoading, data, mutateAsync } = useMutation((formulario) => updateUserFormulario(token, userId, formulario))
+    const { mutateAsync } = useMutation((formulario) => updateUserFormulario(token, userId, formulario))
     const [residuos, setResiduos] = useState([])
     const [autodiagnostico, setAutodiagnostico] = useState({
         catastro: '',
@@ -102,7 +102,7 @@ const FaseAutodiagnostico = () => {
                         <label htmlFor="neumaticos">neumáticos</label>
                     </div>
                     <br />
-                    <label htmlFor="volumen">iii. si su empresa introduce alguno de estos productos proritarios al mercado, en cuánto estima el volumen anual de kilogramos?</label>
+                    <label htmlfor="volumen">III. Si su empresa introduce alguno de estos productos proritarios al mercado, en cuánto estima el volumen anual de kilogramos?</label>
                     <div className="flex flex-row gap-4">
                         <input type="radio" id="mayor" name="volumen" value=">300kg" onChange={changeHandler} />
                         <label htmlFor="mayor">mayor a 300kg</label>
@@ -112,7 +112,7 @@ const FaseAutodiagnostico = () => {
                         <label htmlFor="menor">menor a 300kg</label>
                     </div>
                     <br />
-                    <label htmlFor="gestion">iv. si su empresa es generadora de alguno de estos productos, posee un sistema de gestión para estos residuos?</label>
+                    <label htmlFor="gestion">IV. Si su empresa es generadora de alguno de estos productos, posee un sistema de gestión para estos residuos?</label>
                     <div className="flex flex-row gap-4">
                         <input type="radio" id="si-gestion" name="gestion" value="sí" onChange={changeHandler} />
                         <label htmlFor="si-gestion">sí</label>
@@ -122,7 +122,7 @@ const FaseAutodiagnostico = () => {
                         <label htmlFor="no-gestion">no</label>
                     </div>
                     <br />
-                    <label htmlFor="revalorizacion">v. su empresa, maneja un sistema d revalorización de sus residuos?</label>
+                    <label htmlFor="revalorizacion">V. Su empresa, maneja un sistema d revalorización de sus residuos?</label>
                     <div className="flex flex-row gap-4">
                         <input type="radio" id="si-revalorizacion" name="revalorizacion" value="sí" onChange={changeHandler} />
                         <label htmlFor="si-revalorizacion">sí</label>

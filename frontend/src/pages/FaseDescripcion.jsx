@@ -16,7 +16,7 @@ const FaseDescripcion = () => {
     const navigate = useNavigate()
     const { getUserData, updateUserData } = useHttpClient()
     const { token } = useContext(AuthContext)
-    const { isLoading, error, data } = useQuery(['userData'], () => getUserData(token, userId))
+    const { isLoading, data } = useQuery(['userData'], () => getUserData(token, userId))
     const [user, setUser] = useState({
         telefono: '',
         ubicacion: ''
@@ -29,7 +29,7 @@ const FaseDescripcion = () => {
     const changeHandler = (event) => {
         setUser(prevState => {
             return {
-                ...prevState, [event.target.name]: event.target.value 
+                ...prevState, [event.target.name]: event.target.value
             }
         })
     }
@@ -42,7 +42,7 @@ const FaseDescripcion = () => {
         }
 
         const updatedUser = updateUserData(token, user)
-        if(!updatedUser){
+        if (!updatedUser) {
             return toast.error('Error intentando actualizar sus datos, por favor inténtelo más tarde')
         }
         navigate(`/cuenta/${userId}/fase1`)
@@ -52,15 +52,16 @@ const FaseDescripcion = () => {
         <div className="p-4 w-720 mx-auto">
             <ToastContainer />
             <div className="border p-10 flex flex-col gap-5 rounded-md">
-                {isLoading && <Circles
-                    height="80"
-                    width="80"
-                    color="#4fa94d"
-                    ariaLabel="circles-loading"
-                    wrapperStyle={{}}
-                    wrapperClass=""
-                    visible={true}
-                />}
+                {isLoading &&
+                    <Circles
+                        height="80"
+                        width="80"
+                        color="#4fa94d"
+                        ariaLabel="circles-loading"
+                        wrapperStyle={{}}
+                        wrapperClass=""
+                        visible={true}
+                    />}
                 {!isLoading &&
                     <>
                         <p>Criterios de clasificación</p>
