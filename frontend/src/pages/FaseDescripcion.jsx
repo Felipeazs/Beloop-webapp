@@ -68,11 +68,11 @@ const FaseDescripcion = () => {
                         <p>En esta fase buscamos conocer lo más posible las características de la
                             empresa, generando un análisis de clasificación de rubro</p>
                         <p>Experiencia informativa de usuario:</p>
-                        <p>"Hola! Haz ingresado a Looptest uns plataforma digital que ayuda a la
+                        <p>Hola! Haz ingresado a Looptest una plataforma digital que ayuda a la
                             sistematización de métricas y estándares para la industria del
-                            packaging en términos de economía circular y legislación asociada, a
-                            continucación, te solicitamos responder las siguientes preguntas para
-                            identificar tu empresa"</p>
+                            packaging en términos de economía circular y legislación asociada. A
+                            continuación, te solicitamos responder las siguientes preguntas para
+                            identificar tu empresa</p>
                         <p>Nombre: {data.user.nombre_empresa}</p>
                         <p>Rut: {data.user.rut_empresa}</p>
                         <p>Correo: {data.user.correo}</p>

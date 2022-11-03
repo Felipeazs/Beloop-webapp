@@ -69,14 +69,14 @@ const FaseAutodiagnostico = () => {
                 <p>Pilares de la Ley N 20.920 REP (responsabilidad extendida al productor)</p>
                 <br />
                 <form onSubmit={submitHandler}>
-                    <label htmlFor="catastro">I. Posee un catastro de los residuos generados por su empresa?</label>
+                    <label htmlFor="catastro">I. ¿Posee un catastro de los residuos generados por su empresa?</label>
                     <select id="catastro" className="flex flex-col border p-1 rounded" name="catastro" onChange={changeHandler}>
                         <option value="">elija una opción</option>
                         <option value="sí">Sí</option>
                         <option value="no">No</option>
                     </select>
                     <br />
-                    <label htmlFor="excedentes">II. Su empresa produce o tiene como excedente alguno de los siguientes residuos? Marque una o más alternativas</label>
+                    <label htmlFor="excedentes">II. ¿Su empresa produce o tiene como excedente alguno de los siguientes residuos? Marque una o más alternativas</label>
                     <div className="flex flex-row gap-4">
                         <input type="radio" id="envases" value="envases y embalajes" onChange={excedentesHandler} />
                         <label htmlFor="envases">envases y embalajes</label>
@@ -102,7 +102,7 @@ const FaseAutodiagnostico = () => {
                         <label htmlFor="neumaticos">neumáticos</label>
                     </div>
                     <br />
-                    <label htmlfor="volumen">III. Si su empresa introduce alguno de estos productos proritarios al mercado, en cuánto estima el volumen anual de kilogramos?</label>
+                    <label htmlfor="volumen">III. ¿Si su empresa introduce alguno de estos productos proritarios al mercado, en cuánto estima el volumen anual de kilogramos?</label>
                     <div className="flex flex-row gap-4">
                         <input type="radio" id="mayor" name="volumen" value=">300kg" onChange={changeHandler} />
                         <label htmlFor="mayor">mayor a 300kg</label>
@@ -112,7 +112,7 @@ const FaseAutodiagnostico = () => {
                         <label htmlFor="menor">menor a 300kg</label>
                     </div>
                     <br />
-                    <label htmlFor="gestion">IV. Si su empresa es generadora de alguno de estos productos, posee un sistema de gestión para estos residuos?</label>
+                    <label htmlFor="gestion">IV. ¿Si su empresa es generadora de alguno de estos productos, posee un sistema de gestión para estos residuos?</label>
                     <div className="flex flex-row gap-4">
                         <input type="radio" id="si-gestion" name="gestion" value="sí" onChange={changeHandler} />
                         <label htmlFor="si-gestion">sí</label>
@@ -122,7 +122,7 @@ const FaseAutodiagnostico = () => {
                         <label htmlFor="no-gestion">no</label>
                     </div>
                     <br />
-                    <label htmlFor="revalorizacion">V. Su empresa, maneja un sistema d revalorización de sus residuos?</label>
+                    <label htmlFor="revalorizacion">V. ¿Su empresa, maneja un sistema de revalorización de sus residuos?</label>
                     <div className="flex flex-row gap-4">
                         <input type="radio" id="si-revalorizacion" name="revalorizacion" value="sí" onChange={changeHandler} />
                         <label htmlFor="si-revalorizacion">sí</label>

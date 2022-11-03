@@ -1,8 +1,7 @@
 import React, { useContext } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-
 import useHttpClient from '../hooks/http-hook'
 import Card from '../components/UI/Card'
 import Button from '../components/UI/Button'
@@ -28,7 +27,9 @@ const Cuenta = () => {
     }
 
     let analisis
+    let title = "Realizar análisis"
     if (data.user.analisis.length > 0) {
+        title = "Realizar nuevo análisis"
         analisis = (
             <>
                 <p className="font-bold text-xl">Análisis realizados</p>
@@ -38,7 +39,6 @@ const Cuenta = () => {
                         {new Date(a.createdAt).toLocaleString()}</Link>)}
                 </ul>
             </>
-
         )
     }
 
@@ -52,15 +52,15 @@ const Cuenta = () => {
                 <p>rut: {data.user.rut_empresa}</p>
                 <p>correo: {data.user.correo}</p>
                 <p>telefono: {data.user.telefono}</p>
-                <p>ubicacion: {data.user.ubicacion}</p>
+                <p>ubicación: {data.user.ubicacion}</p>
                 <br />
                 <hr />
                 <br />
                 {data.user.formulario &&
                     <>
-                        <p className="font-black text-xl">Antecedentes</p>
+                        <p className="font-black text-xl">ANTECEDENTES</p>
                         <p>Registro de catastros: {data.user.formulario.catastro}</p>
-                        <p>Volumén anual: {data.user.formulario.volumen}</p>
+                        <p>Volumen anual: {data.user.formulario.volumen}</p>
                         <p>Revalorización de residuos: {data.user.formulario.revalorizacion}</p>
                         <p>Gestión de residuos: {data.user.formulario.gestion}</p>
                         <p>Residuos:</p>
@@ -75,7 +75,7 @@ const Cuenta = () => {
                 <br />
                 {analisis}
                 <br />
-                <Button title="Realizar nuevo análisis" positon="align-end" onClick={clickHandler} />
+                <Button title={title} positon="align-end" onClick={clickHandler} />
             </Card>
         </div>
     )
