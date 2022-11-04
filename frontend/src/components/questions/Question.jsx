@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import MiniCard from '../UI/MiniCard';
 import Input from '../UI/Input';
 

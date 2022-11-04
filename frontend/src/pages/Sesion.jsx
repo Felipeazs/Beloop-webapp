@@ -11,7 +11,7 @@ import Button from '../components/UI/Button'
 
 const Sesion = () => {
     const navigate = useNavigate()
-    const { login, isLoggedIn, logout, userId } = useContext(AuthContext)
+    const { login, isLoggedIn, logout } = useContext(AuthContext)
     const { loginUser, signupUser } = useHttpClient()
     const [toggleForm, setToggleForm] = useState(false)
     const { error, data, mutateAsync } = useMutation(newUser => signupUser(newUser))

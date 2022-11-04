@@ -13,7 +13,6 @@ const Rep = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		setPageTitle('Ley Rep');
 		window.scroll(0, 0);
 	}, [setPageTitle]);
 
