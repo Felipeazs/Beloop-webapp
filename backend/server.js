@@ -2,16 +2,9 @@ const path = require('path')
 const fastify = require('fastify')({ logger: true })
 require('dotenv').config()
 const connectDB = require('./utils/db')
-const Sentry = require('@sentry/node')
-const pkg = require('../package.json')
+const Sentry = require('./sentry.server.config')
 
-Sentry.init({
-    dsn: process.env.SENTRY_DSN,
-    environment: process.env.NODE_ENV,
-    release: `beloop-looptest@${pkg.version}`,
-    tracesSample: 1.0
-})
-
+//handle errors by sentry on development
 fastify.addHook('onError', (request, reply, error, done) => {
     if (process.env.NODE_ENV !== 'development') {
         Sentry.captureException(error)
@@ -48,6 +41,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
+//handle errors
 fastify.setErrorHandler(async (error, request, reply) => {
     fastify.log.error(error)
     reply.status(error.statusCode).send({ ok: false, message: error.message })
