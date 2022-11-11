@@ -6,16 +6,17 @@ const Sentry = require('@sentry/node')
 const pkg = require('../package.json')
 
 Sentry.init({
-  dsn: process.env.SENTRY_DSN,
-  environment: process.env.NODE_ENV,
-  release: `beloop-looptest@${pkg.version}`
+    dsn: process.env.SENTRY_DSN,
+    environment: process.env.NODE_ENV,
+    release: `beloop-looptest@${pkg.version}`,
+    tracesSample: 1.0
 })
 
 fastify.addHook('onError', (request, reply, error, done) => {
-  if (process.env.NODE_ENV !== 'development') {
-    Sentry.captureException(error)
-  }
-  done()
+    if (process.env.NODE_ENV !== 'development') {
+        Sentry.captureException(error)
+    }
+    done()
 })
 
 //setting headers
