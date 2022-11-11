@@ -2,6 +2,21 @@ const path = require('path')
 const fastify = require('fastify')({ logger: true })
 require('dotenv').config()
 const connectDB = require('./utils/db')
+const Sentry = require('@sentry/node')
+const pkg = require('../package.json')
+
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+  environment: process.env.NODE_ENV,
+  release: `beloop-looptest@${pkg.version}`
+})
+
+fastify.addHook('onError', (request, reply, error, done) => {
+  if (process.env.NODE_ENV !== 'development') {
+    Sentry.captureException(error)
+  }
+  done()
+})
 
 //setting headers
 fastify.addHook('onRequest', async (request, reply) => {
@@ -23,7 +38,6 @@ if (process.env.NODE_ENV === 'production') {
         root: path.join(__dirname, '../frontend/build'),
         wildcard: false
     })
-
     fastify.get('*', (request, reply) => {
         reply.sendFile('index.html')
     })
@@ -35,7 +49,6 @@ if (process.env.NODE_ENV === 'production') {
 
 fastify.setErrorHandler(async (error, request, reply) => {
     fastify.log.error(error)
-
     reply.status(error.statusCode).send({ ok: false, message: error.message })
 })
 

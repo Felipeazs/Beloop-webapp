@@ -27,9 +27,9 @@ const Cuenta = () => {
     }
 
     let analisis
-    let title = "Realizar análisis"
+    let btn_title = "Realizar análisis"
     if (data.user.analisis.length > 0) {
-        title = "Realizar nuevo análisis"
+        btn_title = "Realizar nuevo análisis"
         analisis = (
             <>
                 <p className="font-bold text-xl">Análisis realizados</p>
@@ -68,14 +68,13 @@ const Cuenta = () => {
                             {data.user.formulario.residuos.map((residuo, i) => <li key={i}>{residuo}</li>)}
                         </ul>
                     </>
-
                 }
                 <br />
                 <hr />
                 <br />
                 {analisis}
                 <br />
-                <Button title={title} positon="align-end" onClick={clickHandler} />
+                <Button title={btn_title} positon="align-end" onClick={clickHandler} />
             </Card>
         </div>
     )
