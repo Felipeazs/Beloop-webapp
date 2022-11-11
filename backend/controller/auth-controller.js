@@ -100,7 +100,9 @@ const getAllUserAnalisis = async (request, reply) => {
         return reply.status(404).send({ ok: false, message: 'No encontramos analisis para este usuario' })
     }
 
-    return reply.status(200).send({ ok: true, results: userAnalisis.map((analisis) => analisis.toObject({ getters: true })) })
+    return reply.status(200).send(
+        { ok: true, results: userAnalisis.map((analisis) => analisis.toObject({ getters: true })) }
+    )
 }
 
 module.exports = { saveAnalisis, getUserAnalisis, getAllUserAnalisis }

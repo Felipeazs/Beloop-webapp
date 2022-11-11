@@ -4,6 +4,10 @@ require('dotenv').config()
 const connectDB = require('./utils/db')
 const Sentry = require('./sentry.server.config')
 
+const userRoutes = require('./routes/user-route')
+const authRoutes = require('./routes/auth-route')
+const formRoutes = require('./routes/form-route')
+
 //handle errors by sentry on development
 fastify.addHook('onError', (request, reply, error, done) => {
     if (process.env.NODE_ENV !== 'development') {
@@ -20,9 +24,6 @@ fastify.addHook('onRequest', async (request, reply) => {
 })
 
 //routes
-const userRoutes = require('./routes/user-route')
-const authRoutes = require('./routes/auth-route')
-const formRoutes = require('./routes/form-route')
 fastify.register(userRoutes)
 fastify.register(authRoutes)
 fastify.register(formRoutes)
