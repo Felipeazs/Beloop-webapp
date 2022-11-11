@@ -14,21 +14,21 @@
         "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
     },
     "dependencies": {
-        "@ant-design/icons": "^4.7.0",
-        "@fastify/static": "^6.5.0",
-        "@sentry/node": "^7.19.0",
-        "bcryptjs": "^2.4.3",
-        "boom": "^7.3.0",
-        "concurrently": "^7.5.0",
-        "dotenv": "^16.0.3",
-        "fastify": "^4.9.2",
-        "fastify-swagger": "^5.2.0",
-        "jsonwebtoken": "^8.5.1",
-        "mongoose": "^6.7.0",
-        "mongoose-unique-validator": "^3.1.0",
-        "react-loader-spinner": "^5.3.4"
+        "@ant-design/icons": "4.7.0",
+        "@fastify/static": "6.5.0",
+        "@sentry/node": "7.19.0",
+        "bcryptjs": "2.4.3",
+        "boom": "7.3.0",
+        "concurrently": "7.5.0",
+        "dotenv": "16.0.3",
+        "fastify": "4.9.2",
+        "fastify-swagger": "5.2.0",
+        "jsonwebtoken": "8.5.1",
+        "mongoose": "6.7.0",
+        "mongoose-unique-validator": "3.1.0",
+        "react-loader-spinner": "5.3.4"
     },
     "devDependencies": {
-        "nodemon": "^2.0.20"
+        "nodemon": "2.0.20"
     }
 }
