@@ -31,7 +31,7 @@ const Inicio = () => {
                     'Plataforma digital que ayuda a la sistematización de métricas y estándares para la industria del packaging en términos de economía circular y legislación asociada.',
                 ]}
                 heroImage='bg-heroImage1'
-                image='/images/recurso1.png'
+                image='/images/recurso1.webp'
                 mode='primary'
                 onClick={clickHandler}
             />

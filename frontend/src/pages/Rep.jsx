@@ -26,7 +26,7 @@ const Rep = () => {
 					'La Ley N° 20.920, Ley Marco para la Gestión de Residuos, la Responsabilidad Extendida del Productor y Fomento al Reciclaje (“Ley REP”), fue publicada en el Diario Oficial el 1° de junio de 2016.',
 				]}
 				heroImage='bg-heroImage2'
-				image='/images/recurso3.png'
+				image='/images/recurso3.webp'
 				mode='secondary'
 				onClick={() => navigate('/analisis')}
 			/>
