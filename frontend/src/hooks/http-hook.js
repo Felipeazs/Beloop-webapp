@@ -1,4 +1,5 @@
 const baseUrl = process.env.REACT_APP_BASE_URL
+
 const useHttpClient = () => {
     const signupUser = async (newUser) => {
         return fetch(`${baseUrl}/api/users/signup`, {
