@@ -1,5 +1,4 @@
 const fastify = require('fastify')()
-
 const checkAuth = require('../controller/middleware/check-auth')
 
 const { saveUserFormularioOpts } = require('../options/form-options')
