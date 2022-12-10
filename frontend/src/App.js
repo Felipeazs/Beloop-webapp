@@ -24,8 +24,9 @@ function App() {
     const { isLoggedIn } = useContext(AuthContext)
 
     useEffect(() => {
+        console.log(process.env.REACT_APP_BASE_URL)
         const fetching = async () => {
-            await fetch(`${process.env.REACT_APP_BASE_URL}`)
+            await fetch(process.env.REACT_APP_BASE_URL)
                 .then(res => res.json())
                 .then(res => console.log(res))
                 .catch(err => console.log(err.message))
