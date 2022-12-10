@@ -26,7 +26,7 @@ const signupUser = async (request, reply) => {
         findUser = await Usuario.findOne({ $or: [{ 'correo': correo }, { 'rut_empresa': rut }] })
     } catch {
         let error = new Error()
-        error.message = 'Error trying to create a new user'
+        error.message = 'User already created'
         error.statusCode = 500
         throw error
     }
@@ -41,7 +41,7 @@ const signupUser = async (request, reply) => {
 
     } catch {
         let error = new Error()
-        error.message = 'Error trying to create a new user'
+        error.message = 'Unable to create a hashed pass'
         error.statusCode = 500
         throw error
     }
@@ -55,7 +55,7 @@ const signupUser = async (request, reply) => {
 
     } catch {
         let error = new Error()
-        error.message = 'Error trying to create a new user'
+        error.message = 'Unable to save the user to the DB'
         error.statusCode = 500
         throw error
     }
