@@ -1,6 +1,6 @@
 const path = require('path')
 const fastify = require('fastify')({ logger: true })
-const cors = require('cors')
+const cors = require('@fastify/cors')
 require('dotenv').config()
 const connectDB = require('./utils/db')
 const Sentry = require('./sentry.server.config')
