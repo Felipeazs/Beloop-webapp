@@ -19,12 +19,12 @@ fastify.addHook('onError', (request, reply, error, done) => {
     done()
 })
 
-//setting headers
-fastify.addHook('onRequest', async (request, reply) => {
-    reply.header('Access-Control-Allow-Origin', '*')
-    reply.header('Access-Control-Allow-Header', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
-    reply.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
-})
+// //setting headers
+// fastify.addHook('onRequest', async (request, reply) => {
+//     reply.header('Access-Control-Allow-Origin', '*')
+//     reply.header('Access-Control-Allow-Header', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
+//     reply.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+// })
 
 //routes
 fastify.get('/', (request, reply) => {
