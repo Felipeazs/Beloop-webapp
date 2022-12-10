@@ -9,7 +9,7 @@ const userRoutes = require('./routes/user-route')
 const authRoutes = require('./routes/auth-route')
 const formRoutes = require('./routes/form-route')
 
-fastify.register(cors, { origin: ['https://beloop-webapp-17od1yqbr-felipeazs.vercel.app/'] })
+fastify.register(cors, { origin: ['https://beloop-webapp.vercel.app/'] })
 
 //handle errors by sentry on development
 fastify.addHook('onError', (request, reply, error, done) => {
