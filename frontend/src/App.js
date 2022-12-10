@@ -1,4 +1,4 @@
-import React, { useContext, Suspense } from 'react';
+import React, { useContext, useEffect, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 //components
@@ -22,6 +22,13 @@ const FaseAutodiagnostico = React.lazy(() => import('./pages/FaseAutodiagnostico
 
 function App() {
     const { isLoggedIn } = useContext(AuthContext)
+
+    useEffect(() => {
+        const fetching = async () => {
+            await fetch('beloop-webapp-production.up.railway.app').then(res => res.json()).then(res => console.log(res)).catch(err => console.log(err.message))
+        }
+        fetching()
+    }, [])
 
     return (
         <Suspense>
