@@ -1,6 +1,7 @@
+const baseUrl = process.env.REACT_APP_BASE_URL
 const useHttpClient = () => {
     const signupUser = async (newUser) => {
-        return fetch('/api/users/signup', {
+        return fetch(`${baseUrl}/api/users/signup`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newUser),
@@ -10,7 +11,7 @@ const useHttpClient = () => {
     }
 
     const loginUser = async (user) => {
-        return fetch('/api/users/login', {
+        return fetch(`${baseUrl}/api/users/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
@@ -20,7 +21,7 @@ const useHttpClient = () => {
     }
 
     const saveAnalisis = async (token, data, userId) => {
-        return fetch(`/api/user/${userId}/analisis/save`, {
+        return fetch(`${baseUrl}/api/user/${userId}/analisis/save`, {
             method: 'POST',
             headers: {
                 Authentication: 'Bearer ' + token,
@@ -33,7 +34,7 @@ const useHttpClient = () => {
     }
 
     const getUserData = async (token, userId) => {
-        return fetch(`/api/user/${userId}`, {
+        return fetch(`${baseUrl}/api/user/${userId}`, {
             method: 'GET',
             headers: {
                 Authentication: 'Bearer ' + token
@@ -44,7 +45,7 @@ const useHttpClient = () => {
     }
 
     const getUserAnalisis = async (resultId, token) => {
-        return fetch(`/api/user/analisis/${resultId}`, {
+        return fetch(`${baseUrl}/api/user/analisis/${resultId}`, {
             method: 'GET',
             headers: { Authentication: 'Bearer ' + token }
 
@@ -54,7 +55,7 @@ const useHttpClient = () => {
     }
 
     const getAllUserAnalisis = async (token) => {
-        return fetch('/api/user/analisis', {
+        return fetch(`${baseUrl}/api/user/analisis`, {
             method: 'GET',
             headers: { Authentication: 'Bearer ' + token }
         })
@@ -63,7 +64,7 @@ const useHttpClient = () => {
     }
 
     const updateUserData = async (token, data) => {
-        return fetch('/api/user/update', {
+        return fetch(`${baseUrl}/api/user/update`, {
             method: 'PUT',
             headers: {
                 Authentication: 'Bearer ' + token,
@@ -76,7 +77,7 @@ const useHttpClient = () => {
     }
 
     const updateUserFormulario = async (token, userId, formulario) => {
-        return fetch(`/api/user/${userId}/formulario/save`, {
+        return fetch(`${baseUrl}/api/user/${userId}/formulario/save`, {
             method: 'POST',
             headers: {
                 Authentication: 'Bearer ' + token,
