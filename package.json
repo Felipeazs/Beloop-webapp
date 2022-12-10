@@ -10,11 +10,9 @@
         "start": "node backend/server.js",
         "client": "npm start --prefix frontend",
         "server": "nodemon backend/server.js",
-        "dev": "concurrently \"npm run server\" \"npm run client\"",
-        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+        "dev": "concurrently \"npm run server\" \"npm run client\""
     },
     "dependencies": {
-        "@ant-design/icons": "4.7.0",
         "@fastify/static": "6.5.0",
         "@sentry/node": "7.19.0",
         "@sentry/tracing": "^7.19.0",
