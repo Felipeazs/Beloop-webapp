@@ -25,7 +25,7 @@ function App() {
 
     useEffect(() => {
         const fetching = async () => {
-            await fetch('https://beloop-webapp-production.up.railway.app/')
+            await fetch('https://beloop-webapp-production.up.railway.app')
                 .then(res => res.json())
                 .then(res => console.log(res))
                 .catch(err => console.log(err.message))

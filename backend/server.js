@@ -28,7 +28,7 @@ fastify.addHook('onRequest', async (request, reply) => {
 
 //routes
 fastify.get('/', (request, reply) => {
-    reply.send('api up and running...')
+    reply.send({ msg: 'api up and running...' })
 })
 fastify.register(userRoutes)
 fastify.register(authRoutes)
